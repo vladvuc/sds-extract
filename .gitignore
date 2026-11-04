@@ -1,0 +1,14 @@
+.DS_Store
+.plans/
+.sandbox/
+.prototype/
+.idea/
+
+.env
+.env.*
+!.env.example
+*.local
+*.log
+!/.idea/
+/.idea/*
+!/.idea/runConfigurations
