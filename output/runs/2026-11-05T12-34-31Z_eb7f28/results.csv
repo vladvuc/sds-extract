@@ -1,0 +1,4 @@
+source_file,trade_name,revision_date,hazard_statements,supplemental_hazard_statements,status,issues
+assSDS-120636860.pdf,Super Silicone Kitchen,15/07/2026,,,needs_review,"hazard_statements: model missed EUH208, EUH210 found in section 2.2"
+assSDS-123006278.pdf,Kroon-Oil Fuel Optimix 2T,21/07/2026,"H224, H304, H315, H336, H411",,ok,
+assSDS-128374293.pdf,BISON KIT TRANSPARANT,20/04/2026,"H225, H319, H336",EUH066,ok,

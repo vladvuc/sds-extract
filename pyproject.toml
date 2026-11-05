@@ -1,0 +1,28 @@
+[project]
+name = "sds-extract"
+version = "0.1.0"
+description = "Extract trade name, revision date and hazard statements from Safety Data Sheets with a local LLM"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "ollama>=0.6",
+    "pydantic>=2.7",
+    "pypdf>=5.0",
+]
+
+[project.optional-dependencies]
+# Review UI only. The pipeline itself never imports it.
+ui = ["nicegui>=3.0"]
+
+[project.scripts]
+sds-extract = "sds_extract.cli:main"
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

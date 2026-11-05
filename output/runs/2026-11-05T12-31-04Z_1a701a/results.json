@@ -1,0 +1,346 @@
+{
+  "run_id": "2026-11-05T12-31-04Z_1a701a",
+  "finished_at": "2026-11-05T12:33:05+00:00",
+  "duration_s": 121.11,
+  "counts": {
+    "ok": 14,
+    "needs_review": 2,
+    "error": 2
+  },
+  "skipped_files": [],
+  "documents": [
+    {
+      "source_file": "de-buderus-silcadur-hfs.pdf",
+      "sha256": "d53baeb4df852dd0be71b84b0c08f872af2dd172f692b5fab8ddc3b1f3f0da6d",
+      "trade_name": "SILCADUR HFS Kleber",
+      "revision_date": "29/08/2024",
+      "hazard_statements": "H315, H319",
+      "supplemental_hazard_statements": "",
+      "status": "needs_review",
+      "issues": [
+        "revision_date: model returned no value",
+        "revision_date: filled from labelled date 29/08/2024"
+      ],
+      "llm": {
+        "raw": "{\n  \"trade_name\": \"SILCADUR HFS Kleber\",\n  \"revision_date\": null,\n  \"hazard_codes\": [\"H315\", \"H319\"]\n}",
+        "duration_s": 6.07
+      },
+      "sections": {
+        "header": "Über 1 Mio. zufriedene Kunden\nim Durchschnitt 4,91 / 5,00\nIhr Onlineshop für Heizung, Solar und Klima",
+        "1.1": "1.1 Produktidentifikator\nHandelsname SILCADUR HFS Kleber",
+        "2.2": "2.2 Kennzeichnungselemente\nKennzeichnung gemäß Verordnung (EG) Nr. 1272/2008 (CLP)\nSignalwort Achtung\nPiktogramme\nGHS07\n \nGefahrenhinweise\nH315 Verursacht Hautreizungen. \nH319 Verursacht schwere Augenreizung. \nSicherheitshinweise\nP280 Schutzhandschuhe/Schutzkleidung/Augenschutz/Gesichtsschutz tragen. \nP302+P352 BEI BERÜHRUNG MIT DER HAUT: Mit viel Wasser und Seife waschen. \nP305+P351+P338 BEI KONTAKT MIT DEN AUGEN: Einige Minuten lang behutsam mit Wasser \nspülen. Eventuell vorhandene Kontaktlinsen nach Möglichkeit entfernen. \nWeiter spülen. \nP332+P313 Bei Hautreizung: Ärztlichen Rat einholen/ärztliche Hilfe hinzuziehen. \nP337+P313 Bei anhaltender Augenreizung: Ärztlichen Rat einholen/ärztliche Hilfe hinzu-\nziehen."
+      }
+    },
+    {
+      "source_file": "de-fischer-kilo-kleber.pdf",
+      "sha256": "784c21161874bbf50aa6e98ae71f59a64c72a019b2c668483f3c5708a33faee8",
+      "trade_name": "320 KILO KLEBER 80 ml",
+      "revision_date": "27/03/2019",
+      "hazard_statements": "",
+      "supplemental_hazard_statements": "EUH208, EUH210",
+      "status": "ok",
+      "issues": [],
+      "llm": {
+        "raw": "{\n  \"trade_name\": \"320 KILO KLEBER 80 ml\",\n  \"revision_date\": \"27.03.2019\",\n  \"hazard_codes\": [\"EUH208\", \"EUH210\"]\n}",
+        "duration_s": 4.72
+      },
+      "sections": {
+        "header": "Sicherheitsdatenblatt gemäß 1907/2006/EG\nHandelsname:  320 KILO KLEBER 80 ml\n ..\nStand: 27.03.2019\nVersion: 1.0 /de Druckdatum: 27.03.2019\n1 / 9\nABSCHNITT 1: Bezeichnung des Stoffs beziehungsweise des Gemischs und des\nUnternehmens",
+        "1.1": "1.1 Produktidentifikator\nHandelsname 320 KILO KLEBER 80 ml",
+        "2.2": "2.2 Kennzeichnungselemente\nKennzeichnung gemäß Verord-\nnung (EG) Nr. 1272/2008 [CLP]\nDas Produkt braucht nach der Verordnung (EG) Nr. 1272/2008 [CLP]\nnicht gekennzeichnet zu werden.\nErgänzende Informationen EUH208: Enthält 1,2-Benzisothiazol-3(2H)-on, Gemisch aus: 5-\nChlor-2-methyl-2H-isothiazol-3-on [EG nr. 247-500-7] und 2-\nSicherheitsdatenblatt gemäß 1907/2006/EG\nHandelsname:  320 KILO KLEBER 80 ml\n ..\nStand: 27.03.2019\nVersion: 1.0 /de Druckdatum: 27.03.2019\n2 / 9\nMethyl-2H-isothiazol-3-on [EG nr. 220-239-6] (3:1). Kann allergi-\nsche Reaktionen hervorrufen.\nEUH210: Sicherheitsdatenblatt auf Anfrage erhältlich."
+      }
+    },
+    {
+      "source_file": "de-hornbach-grossformat-kleber.pdf",
+      "sha256": "1d9b3fe1ef25ba2f5a13bc872d6bf891d334aa2faaa74e2841d1ec1fe05b6720",
+      "trade_name": null,
+      "revision_date": null,
+      "hazard_statements": "",
+      "supplemental_hazard_statements": "",
+      "status": "error",
+      "issues": [
+        "error: cryptography>=3.1 is required for AES algorithm"
+      ]
+    },
+    {
+      "source_file": "de-rockwool-moertelkleber.pdf",
+      "sha256": "bb9ac152f634fb4f165a54c8f387baffddf8040c802df38b40ebbcd459429aee",
+      "trade_name": null,
+      "revision_date": null,
+      "hazard_statements": "",
+      "supplemental_hazard_statements": "",
+      "status": "error",
+      "issues": [
+        "error: cryptography>=3.1 is required for AES algorithm"
+      ]
+    },
+    {
+      "source_file": "en-aerosol-21868895.pdf",
+      "sha256": "6a6bf79d918dc050209da53335c5c6abcb253f4daa6899a16363cd7beca50480",
+      "trade_name": "WD-40® Specialist® Engine Starter",
+      "revision_date": "05/09/2022",
+      "hazard_statements": "H315, H336, H412, H222, H229",
+      "supplemental_hazard_statements": "EUH019",
+      "status": "ok",
+      "issues": [],
+      "llm": {
+        "raw": "{\n  \"trade_name\": \"WD-40® Specialist® Engine Starter\",\n  \"revision_date\": \"05.09.2022\",\n  \"hazard_codes\": [\"H315\", \"H336\", \"H412\", \"H222\", \"H229\", \"EUH019\"]\n}",
+        "duration_s": 5.88
+      },
+      "sections": {
+        "header": "Safety data sheet according to Regulation (EC) No 1907/2006, Annex II\nRevision date / version: 05.09.2022  / 0013   \nReplacing version dated / version: 01.11.2021  / 0012  \nValid from: 05.09.2022  \nPDF print date: 06.11.2023\nWD-40® Specialist® Engine Starter\nSafety data sheet\naccording to Regulation (EC) No 1907/2006, Annex II\nSECTION 1: Identification of the substance/mixture and of the company/undertaking",
+        "1.1": "1.1 Product identifier\nWD-40® Specialist® Engine Starter",
+        "2.2": "2.2 Label elements\nLabeling according to Regulation (EC) 1272/2008 (CLP)\nDanger\nH315-Causes skin irritation.  H336-May cause drowsiness or dizziness.  H412-Harmful to aquatic life with long lasting effects.    \nH222-Extremely flammable aerosol.  H229-Pressurised container: May burst if heated.\nP101-If medical advice is needed, have product container or label at hand.  P102-Keep out of reach of children.\nP210-Keep away from heat, hot surfaces, sparks, open flames and other ignition sources. No smoking.  P211-Do not spray on an \nopen flame or other ignition source.  P251-Do not pierce or burn, even after use.  P261-Avoid breathing spray.  P271-Use only \noutdoors or in a well-ventilated area.  P280-Wear protective gloves / protective clothing and eye protection / face protection.\nP312-Call a POISON CENTRE / doctor if you feel unwell.\nP410+P412-Protect from sunlight. Do not expose to temperatures exceeding 50 °C.\nP501-Dispose of contents / container to an approved waste disposal facility.\nEUH019-May form explosive peroxides.\nWithout adequate ventilation, formation of explosive mixtures may be possible.\nDiethyl ether\nHydrocarbons, C7, n-alkanes, isoalkanes, cyclics"
+      }
+    },
+    {
+      "source_file": "en-wd40-fast-release-penetrant.pdf",
+      "sha256": "6eb4c21b4d17b0ad3727b94e5a7f25d4f79a79b36338566316b659334ce57ba1",
+      "trade_name": "WD-40® Specialist® Fast Release Penetrant",
+      "revision_date": "09/10/2025",
+      "hazard_statements": "H315, H336, H411, H222, H229",
+      "supplemental_hazard_statements": "",
+      "status": "ok",
+      "issues": [],
+      "llm": {
+        "raw": "{\n  \"trade_name\": \"WD-40®   Specialist®  Fast Release Penetrant\",\n  \"revision_date\": \"09.10.2025\",\n  \"hazard_codes\": [\"H315\", \"H336\", \"H411\", \"H222\", \"H229\"]\n}",
+        "duration_s": 7.25
+      },
+      "sections": {
+        "header": "Safety data sheet according to Regulation (EC) No 1907/2006, Annex II (last amended by Regulation (EU) 2020/878)\nRevision date / version: 09.10.2025  / 0021   \nReplacing version dated / version: 21.05.2025  / 0020  \nValid from: 09.10.2025  \nPDF print date: 10.10.2025\nWD-40®   Specialist®  Fast Release Penetrant\n WD-40®   Specialist®  PENETRANT\nSafety data sheet\naccording to Regulation (EC) No 1907/2006, Annex II (last amended by\nRegulation (EU) 2020/878)\nSECTION 1: Identification of the substance/mixture and of the company/undertaking",
+        "1.1": "1.1 Product identifier\nWD-40®   Specialist®  Fast Release Penetrant\n WD-40®   Specialist®  PENETRANT",
+        "2.2": "2.2 Label elements\nLabeling according to Regulation (EC) 1272/2008 (CLP)\nDanger\nH315-Causes skin irritation.  H336-May cause drowsiness or dizziness.  H411-Toxic to aquatic life with long lasting effects.  H222-\nExtremely flammable aerosol.  H229-Pressurised container: May burst if heated.\nP101-If medical advice is needed, have product container or label at hand.  P102-Keep out of reach of children.\nP210-Keep away from heat, hot surfaces, sparks, open flames and other ignition sources. No smoking.  P211-Do not spray on an \nopen flame or other ignition source.  P251-Do not pierce or burn, even after use.  P261-Avoid breathing vapours or spray.  P273-\nAvoid release to the environment.  P280-Wear protective gloves.\nP312-Call a POISON CENTRE / doctor if you feel unwell.\nP405-Store locked up.  P410+P412-Protect from sunlight. Do not expose to temperatures exceeding 50 °C.\nP501-Dispose of contents / container to an approved waste disposal facility.\nWithout adequate ventilation, formation of explosive mixtures may be possible.\nHydrocarbons, C9-C11, n-alkanes, isoalkanes, cyclics, <2% aromatics\nHydrocarbons, C7, n-alkanes, isoalkanes, cyclics\nHydrocarbons, C7-C9, isoalkanes\nHydrocarbons, C12-C16, isoalkanes, cyclics, <2% aromatics"
+      }
+    },
+    {
+      "source_file": "en-wd40-multi-use-non-aerosol.pdf",
+      "sha256": "df919bdc381875b067657212b09ab4661975ff59588ee42a1f4efb7df33fc6fd",
+      "trade_name": "WD-40® MULTI-USE PRODUCT - [Non-Aerosol]",
+      "revision_date": "10/07/2015",
+      "hazard_statements": "H226, H304, H336",
+      "supplemental_hazard_statements": "EUH066",
+      "status": "ok",
+      "issues": [],
+      "llm": {
+        "raw": "{\n  \"trade_name\": \"WD-40® MULTI-USE PRODUCT - [Non-Aerosol]\",\n  \"revision_date\": \"10.07.2015\",\n  \"hazard_codes\": [\"H226\", \"H304\", \"H336\", \"EUH066\"]\n}",
+        "duration_s": 6.88
+      },
+      "sections": {
+        "header": "Safety data sheet according to Regulation (EC) No 1907/2006, Annex II\nRevision date / version: 10.07.2015  / 0003  \nReplacing version dated / version: 26.08.2014  / 0002  \nValid from: 10.07.2015  \nPDF print date: 11.08.2015\nWD-40® MULTI-USE PRODUCT - [Non-Aerosol]\nSafety data sheet\naccording to Regulation (EC) No 1907/2006, Annex II\nSECTION 1: Identification of the substance/mixture and of the company/undertaking",
+        "1.1": "1.1 Product identifier\nWD-40® MULTI-USE PRODUCT - [Non-Aerosol]",
+        "2.2": "2.2 Label elements\nLabeling according to Regulation (EC) 1272/2008 (CLP)\nPage  1 of 13\nSafety data sheet according to Regulation (EC) No 1907/2006, Annex II\nRevision date / version: 10.07.2015  / 0003  \nReplacing version dated / version: 26.08.2014  / 0002  \nValid from: 10.07.2015  \nPDF print date: 11.08.2015\nWD-40® MULTI-USE PRODUCT - [Non-Aerosol]\nDanger\nH226-Flammable liquid and vapour.  H304-May be fatal if swallow ed and enters airways.  H336-May cause drowsiness or dizziness.\nP101-If medical advice is needed, have product container or label at hand.  P102-Keep out of reach of children.\nP210-Keep away from heat, hot surfaces, sparks, open flames and other ignition source s. No smoking.  P261-Avoid breathing \nvapours or spray.  P271-Use only outdoors or in a well-ventilated area.\nP301+P310+P331-IF SWALLOWED: Immediately call a POISON CENT ER/doctor. Do NOT induce vomiting.  P312-Call a POISON \nCENTER/doctor if you feel unwell.\nP405-Store locked up.\nP501-Dispose of contents/container safely.\nEUH066-Repeated exposure may cause skin dryness or cracking.\nHydrocarbons, C9-C11, n-alkanes, isoalkanes, cyclics, < 2% aromatics"
+      }
+    },
+    {
+      "source_file": "nl-bison-groene-aanslagvreter.pdf",
+      "sha256": "9e43c772eb75c6d80a9cabd4354b01e7508f980da460a11122778d683c60d774",
+      "trade_name": "Bison Groene Aanslagvreter",
+      "revision_date": "29/07/2024",
+      "hazard_statements": "H315, H318, H410",
+      "supplemental_hazard_statements": "",
+      "status": "ok",
+      "issues": [],
+      "llm": {
+        "raw": "{\n  \"trade_name\": \"Bison Groene Aanslagvreter\",\n  \"revision_date\": \"29.07.2024\",\n  \"hazard_codes\": [\"H315\", \"H318\", \"H410\"]\n}",
+        "duration_s": 6.18
+      },
+      "sections": {
+        "header": "Bladzijde: 1/11\nVeiligheidsinformatieblad\nvolgens Verordening (EG) nr. 1907/2006, Artikel 31\ndatum van de druk: 29.07.2024 Herziening van: 29.07.2024Versienummer 11 (vervangt versie 10)\n58.1.3\nRUBRIEK 1: Identificatie van de stof of het mengsel en van de vennootschap/\nonderneming",
+        "1.1": "· 1.1 Productidentificatie\n· Handelsnaam: Bison Groene Aanslagvreter",
+        "2.2": "· 2.2 Etiketteringselementen\n· Etikettering overeenkomstig Verordening (EG) nr. 1272/2008\nHet product is geclassificeerd en geëtiketteerd volgens de CLP-verordening.\n(Vervolg op blz. 2)\n NL \n6313766 - GRF GREEN MOULD REMOVER BO 1L*6 NLFR\nGRF GREEN MOULD REMOVER BO 1L*6 NLFR\nwww.griffon.eu 1/11\nBladzijde: 2/11\nVeiligheidsinformatieblad\nvolgens Verordening (EG) nr. 1907/2006, Artikel 31\ndatum van de druk: 29.07.2024 Herziening van: 29.07.2024Versienummer 11 (vervangt versie 10)\nHandelsnaam: Bison Groene Aanslagvreter\n(Vervolg van blz. 1)\n58.1.3\n· Gevarenpictogrammen\nGHS05\n GHS09\n· Signaalwoord Gevaar\n· Gevaaraanduidende componenten voor de etikettering:\ndidecyldimethylammoniumchloride\n· Gevarenaanduidingen\nH315 Veroorzaakt huidirritatie.\nH318 Veroorzaakt ernstig oogletsel.\nH410 Zeer giftig voor in het water levende organismen, met langdurige gevolgen.\n· Veiligheidsaanbevelingen\nP101 Bij het inwinnen van medisch advies, de verpakking of het etiket ter beschikking\nhouden.\nP102 Buiten het bereik van kinderen houden.\nP273 Voorkom lozing in het milieu.\nP280 Draag beschermende handschoenen/beschermende kleding/oogbescherming/\ngelaatsbescherming.\nP305+P351+P338 BIJ CONTACT MET DE OGEN: voorzichtig afspoelen met water gedurende een\naantal minuten; contactlenzen verwijderen, indien mogelijk; blijven spoelen.\nP310 Onmiddellijk een ANTIGIFCENTRUM/arts raadplegen.\nP501 De inhoud/verpakking afvoeren over eenkomstig de nationale voorschriften.\n· Aanvullende gegevens:\nBevat biociden: didecyldimethylammoniumchloride"
+      }
+    },
+    {
+      "source_file": "nl-bison-kit-verdunner.pdf",
+      "sha256": "c1248ac8b1ab89d31bf98e3dec01858c9533e8df31c737fdcfb8ba11a92baa21",
+      "trade_name": "VERDUNNER VOOR BISON KIT",
+      "revision_date": "10/07/2026",
+      "hazard_statements": "H225, H315, H319, H336, H304, H411",
+      "supplemental_hazard_statements": "",
+      "status": "needs_review",
+      "issues": [
+        "hazard_statements: model missed H373 found in section 2.2"
+      ],
+      "llm": {
+        "raw": "{\n  \"trade_name\": \"VERDUNNER VOOR BISON KIT\",\n  \"revision_date\": \"10.07.2026\",\n  \"hazard_codes\": [\"H225\", \"H315\", \"H319\", \"H336\", \"H304\", \"H411\"]\n}",
+        "duration_s": 7.71
+      },
+      "sections": {
+        "header": "Bladzijde: 1/16\nVeiligheidsinformatieblad\nvolgens Verordening (EG) nr. 1907/2006, Artikel 31\nAfdrukdatum: 14.07.2026 herzien op: 10.07.2026 Versienummer 45 (vervangt versie 44)\n63.0\nRUBRIEK 1: Identificatie van de stof of het mengsel  en van de\nvennootschap/onderneming",
+        "1.1": "· 1.1 Productidentificatie\n· Handelsnaam: VERDUNNER VOOR BISON KIT",
+        "2.2": "· 2.2 Etiketteringselementen\n· Etikettering overeenkomstig Verordening (EG) nr. 1272/2008\nHet product is geclassificeerd en geëtiketteerd volgens de CLP-verordening.\n· Gevarenpictogrammen\nGHS02 GHS07 GHS08 GHS09\n· Signaalwoord Gevaar\n(Vervolg op blz. 2)\n NL \nGRF CLEANER TI 1L*6 L221\n6305110 - GRF CLEANER TI 1L*6 L221\nwww.griffon.eu 1/16\nBladzijde: 2/16\nVeiligheidsinformatieblad\nvolgens Verordening (EG) nr. 1907/2006, Artikel 31\nAfdrukdatum: 14.07.2026 herzien op: 10.07.2026 Versienummer 45 (vervangt versie 44)\nHandelsnaam: VERDUNNER VOOR BISON KIT\n(Vervolg van blz. 1)\n63.0\n· Gevaaraanduidende componenten voor de etikettering:\nKoolwaterstoffen, C6-C7, isoalkanen, cyclisch, <5% n-hexaan\nn-hexaan\nKoolwaterstoffen, C7, n-alkanen, isoalkanen, cycli\nEthylacetaat\n· Gevarenaanduidingen\nH225 Licht ontvlambare vloeistof en damp.\nH315 Veroorzaakt huidirritatie.\nH319 Veroorzaakt ernstige oogirritatie.\nH336 Kan slaperigheid of duizeligheid veroorzaken.\nH373 Kan schade aan het zenuwstelsel veroorzaken bij langdurige of herhaalde blootstelling.\nH304 Kan dodelijk zijn als de stof bij inslikken in de luchtwegen terechtkomt.\nH411 Giftig voor in het water levende organismen, met langdurige gevolgen.\n· Veiligheidsaanbevelingen\nP101 Bij het inwinnen van medisch advies, de verpakki ng of het etiket ter beschikking\nhouden.\nP102 Buiten het bereik van kinderen houden.\nP210 Verwijderd houden van warmte, hete oppervlakken , vonken, open vuur en andere\nontstekingsbronnen. Niet roken.\nP261 Inademing van damp vermijden.\nP301+P310 NA INSLIKKEN: onmiddellijk een ANTIGIFCENTRUM/arts raadplegen.\nP331 GEEN braken opwekken.\nP403+P233 Op een goed geventileerde plaats bewaren. In goed gesloten verpakking bewaren.\nP501 De inhoud/verpakking afvoeren overeenkomstig de na tionale voorschriften."
+      }
+    },
+    {
+      "source_file": "nl-bison-kneedbaar-hout.pdf",
+      "sha256": "60a430e1787c2daf6a0af2e7c06fe2464d8d1fbff342a10e909ef215ef055c99",
+      "trade_name": "BISON KNEEDBAAR HOUT",
+      "revision_date": "23/07/2025",
+      "hazard_statements": "H225, H319, H317, H336",
+      "supplemental_hazard_statements": "EUH066",
+      "status": "ok",
+      "issues": [],
+      "llm": {
+        "raw": "{\n  \"trade_name\": \"BISON KNEEDBAAR HOUT\",\n  \"revision_date\": \"23.07.2025\",\n  \"hazard_codes\": [\"H225\", \"H319\", \"H317\", \"H336\", \"EUH066\"]\n}",
+        "duration_s": 11.16
+      },
+      "sections": {
+        "header": "Bladzijde: 1/14\nVeiligheidsinformatieblad\nvolgens Verordening (EG) nr. 1907/2006, Artikel 31\ndatum van de druk: 23.07.2025 Herziening van: 23.07.20 25 Versienummer 34 (vervangt versie 33)\n60.1.4\n* RUBRIEK 1: Identificatie van de stof of het mengsel  en van de\nvennootschap/onderneming",
+        "1.1": "· 1.1 Productidentificatie\n· Handelsnaam: BISON KNEEDBAAR HOUT",
+        "2.2": "· 2.2 Etiketteringselementen\n· Etikettering overeenkomstig Verordening (EG) nr. 1272/2008\nHet product is geclassificeerd en geëtiketteerd volgens de CLP-verordening.\n(Vervolg op blz. 2)\n BE \nBIS WOOD REPAIR TEAK TR 50ML*10 NLFR\n1492643 - BIS WOOD REPAIR TEAK TR 50ML*10 NLFR\nwww.bison.net 1/14\nBladzijde: 2/14\nVeiligheidsinformatieblad\nvolgens Verordening (EG) nr. 1907/2006, Artikel 31\ndatum van de druk: 23.07.2025 Herziening van: 23.07.20 25 Versienummer 34 (vervangt versie 33)\nHandelsnaam: BISON KNEEDBAAR HOUT\n(Vervolg van blz. 1)\n60.1.4\n· Gevarenpictogrammen\nGHS02 GHS07\n· Signaalwoord Gevaar\n· Gevaaraanduidende componenten voor de etikettering:\nAceton\nHars\nEthylacetaat\npropaan-2-ol\n· Gevarenaanduidingen\nH225 Licht ontvlambare vloeistof en damp.\nH319 Veroorzaakt ernstige oogirritatie.\nH317 Kan een allergische huidreactie veroorzaken.\nH336 Kan slaperigheid of duizeligheid veroorzaken.\n· Veiligheidsaanbevelingen\nP101 Bij het inwinnen van medisch advies, de verpakki ng of het etiket ter beschikking\nhouden.\nP102 Buiten het bereik van kinderen houden.\nP210 Verwijderd houden van warmte, hete oppervlakken , vonken, open vuur en andere\nontstekingsbronnen. Niet roken.\nP261 Inademing van damp vermijden.\nP280 Draag beschermende handschoenen/oogbescherming.\nP370+P378 In geval van brand: Blussen met: waternevel , alcoholbestendig schuim, bluspoeder,\nkooldioxide.\nP403+P233 Op een goed geventileerde plaats bewaren. In goed gesloten verpakking bewaren.\nP501 De inhoud/verpakking afvoeren overeenkomstig de na tionale voorschriften.\n· Aanvullende gegevens:\nEUH066 Herhaalde blootstelling kan een droge of een gebarsten huid veroorzaken.\n· Etikettering van pakketten met een totale inhoud van ten hoogste 125 ml\n· Gevarenpictogrammen\nGHS02 GHS07\n· Signaalwoord Gevaar\n· Gevaaraanduidende componenten voor de etikettering:\nAceton\nHars\nEthylacetaat\npropaan-2-ol\n· Gevarenaanduidingen\nH317 Kan een allergische huidreactie veroorzaken.\nH336 Kan slaperigheid of duizeligheid veroorzaken.\n(Vervolg op blz. 3)\n BE \nBIS WOOD REPAIR TEAK TR 50ML*10 NLFR\n1492643 - BIS WOOD REPAIR TEAK TR 50ML*10 NLFR\nwww.bison.net 2/14\nBladzijde: 3/14\nVeiligheidsinformatieblad\nvolgens Verordening (EG) nr. 1907/2006, Artikel 31\ndatum van de druk: 23.07.2025 Herziening van: 23.07.20 25 Versienummer 34 (vervangt versie 33)\nHandelsnaam: BISON KNEEDBAAR HOUT\n(Vervolg van blz. 2)\n60.1.4\n· Veiligheidsaanbevelingen\nP101 Bij het inwinnen van medisch advies, de verpakki ng of het etiket ter beschikking\nhouden.\nP102 Buiten het bereik van kinderen houden.\nP210 Verwijderd houden van warmte, hete oppervlakken , vonken, open vuur en andere\nontstekingsbronnen. Niet roken.\nP261 Inademing van damp vermijden.\nP280 Draag beschermende handschoenen/oogbescherming.\nP403+P233 Op een goed geventileerde plaats bewaren. In goed gesloten verpakking bewaren.\nP501 De inhoud/verpakking afvoeren overeenkomstig de na tionale voorschriften."
+      }
+    },
+    {
+      "source_file": "nl-bison-schimmelvreter.pdf",
+      "sha256": "5dd530f292d85db7758b33968dff25f58675bdc06d7f147735074795ce30cf8f",
+      "trade_name": "BISON SCHIMMELVRETER",
+      "revision_date": "15/07/2026",
+      "hazard_statements": "H290, H314, H410",
+      "supplemental_hazard_statements": "EUH206",
+      "status": "ok",
+      "issues": [],
+      "llm": {
+        "raw": "{\n  \"trade_name\": \"BISON SCHIMMELVRETER\",\n  \"revision_date\": \"15.07.2026\",\n  \"hazard_codes\": [\"H290\", \"H314\", \"H410\", \"EUH206\"]\n}",
+        "duration_s": 8.51
+      },
+      "sections": {
+        "header": "Bladzijde: 1/13\nVeiligheidsinformatieblad\nvolgens Verordening (EG) nr. 1907/2006, Artikel 31\nAfdrukdatum: 15.07.2026 herzien op: 15.07.2026 Versienummer 46 (vervangt versie 45)\n63.0\nRUBRIEK 1: Identificatie van de stof of het mengsel  en van de\nvennootschap/onderneming",
+        "1.1": "· 1.1 Productidentificatie\n· Handelsnaam: BISON SCHIMMELVRETER",
+        "2.2": "· 2.2 Etiketteringselementen\n· Etikettering overeenkomstig Verordening (EG) nr. 1272/2008\nHet product is geclassificeerd en geëtiketteerd volgens de CLP-verordening.\n· Gevarenpictogrammen\nGHS05 GHS09\n· Signaalwoord Gevaar\n· Gevaaraanduidende componenten voor de etikettering:\nnatriumhypochloriet, oplossing\nzwavelzuur, mono-C8-10-alkylesters, natriumzouten\n(Vervolg op blz. 2)\n NL \nGRF MILDEW REMOVER BO 750ML*12 NLFR\n6309645 - GRF MILDEW REMOVER BO 750ML*12 NLFR\nwww.griffon.eu 1/13\nBladzijde: 2/13\nVeiligheidsinformatieblad\nvolgens Verordening (EG) nr. 1907/2006, Artikel 31\nAfdrukdatum: 15.07.2026 herzien op: 15.07.2026 Versienummer 46 (vervangt versie 45)\nHandelsnaam: BISON SCHIMMELVRETER\n(Vervolg van blz. 1)\n63.0\n· Gevarenaanduidingen\nH290 Kan bijtend zijn voor metalen.\nH314 Veroorzaakt ernstige brandwonden en oogletsel.\nH410 Zeer giftig voor in het water levende organismen, met langdurige gevolgen.\n· Veiligheidsaanbevelingen\nP101 Bij het inwinnen van medisch advies, de verpakk ing of het etiket ter\nbeschikking houden.\nP102 Buiten het bereik van kinderen houden.\nP260 Spuitnevel niet inademen.\nP273 Voorkom lozing in het milieu.\nP280 Draag beschermende handschoenen/oogbescherming.\nP301+P330+P331 NA INSLIKKEN: de mond spoelen. GEEN braken opwekken.\nP303+P361+P353 BIJ CONTACT MET DE HUID (of het haar): verontreinigde kleding onmiddellijk\nuittrekken. Huid met water afspoelen [of afdouchen].\nP305+P351+P338 BIJ CONTACT MET DE OGEN: voorzichtig afspoelen met water gedurende\neen aantal minuten; contactlenzen verwijderen, indi en mogelijk; blijven\nspoelen.\nP310 Onmiddellijk een ANTIGIFCENTRUM/arts raadplegen.\nP391 Gelekte/gemorste stof opruimen.\nP501 De inhoud/verpakking afvoeren overeenkomstig de na tionale voorschriften.\n· Aanvullende gegevens:\nEUH206 Let op! Niet in combinatie met andere product en gebruiken. Er kunnen gevaarlijke\ngassen (chloor) vrijkomen.\nBevat biociden: natriumhypochloriet, oplossing"
+      }
+    },
+    {
+      "source_file": "nl-bison-tix-av-chv.pdf",
+      "sha256": "02edcf65ade3b823defa30d0853d7f17dede248e23add8dadf8738e7638421a2",
+      "trade_name": "Bison Tix AV+CHV",
+      "revision_date": "08/05/2026",
+      "hazard_statements": "H225, H315, H319, H336, H412",
+      "supplemental_hazard_statements": "EUH208",
+      "status": "ok",
+      "issues": [],
+      "llm": {
+        "raw": "{\n  \"trade_name\": \"Bison Tix AV+CHV\",\n  \"revision_date\": \"08.05.2026\",\n  \"hazard_codes\": [\"H225\", \"H315\", \"H319\", \"H336\", \"H412\", \"EUH208\"]\n}",
+        "duration_s": 8.36
+      },
+      "sections": {
+        "header": "Bladzijde: 1/16\nVeiligheidsinformatieblad\nvolgens Verordening (EG) nr. 1907/2006, Artikel 31\nAfdrukdatum: 13.07.2026 herzien op: 08.05.2026 Versienummer 43 (vervangt versie 42)\n63.0\nRUBRIEK 1: Identificatie van de stof of het mengsel  en van de\nvennootschap/onderneming",
+        "1.1": "· 1.1 Productidentificatie\n· Handelsnaam: Bison Tix AV+CHV",
+        "2.2": "· 2.2 Etiketteringselementen\n· Etikettering overeenkomstig Verordening (EG) nr. 1272/2008\nHet product is geclassificeerd en geëtiketteerd volgens de CLP-verordening.\n· Gevarenpictogrammen\nGHS02 GHS07\n· Signaalwoord Gevaar\n· Gevaaraanduidende componenten voor de etikettering:\nButanon\nMethylcyclohexaan\nEthylacetaat\nAceton\n· Gevarenaanduidingen\nH225 Licht ontvlambare vloeistof en damp.\nH315 Veroorzaakt huidirritatie.\nH319 Veroorzaakt ernstige oogirritatie.\nH336 Kan slaperigheid of duizeligheid veroorzaken.\nH412 Schadelijk voor in het water levende organismen, met langdurige gevolgen.\n· Veiligheidsaanbevelingen\nP101 Bij het inwinnen van medisch advies, de verpakki ng of het etiket ter beschikking\nhouden.\nP102 Buiten het bereik van kinderen houden.\nP210 Verwijderd houden van warmte, hete oppervlakken , vonken, open vuur en andere\nontstekingsbronnen. Niet roken.\nP261 Inademing van damp vermijden.\nP370+P378 In geval van brand: Blussen met: waternevel , alcoholbestendig schuim, bluspoeder,\nkooldioxide.\nP403+P233 Op een goed geventileerde plaats bewaren. In goed gesloten verpakking bewaren.\nP501 De inhoud/verpakking afvoeren overeenkomstig de na tionale voorschriften.\n· Aanvullende gegevens:\nEUH208 Bevat Hars. Kan een allergische reactie veroorzaken.\nProdukt bevat: Precursoren voor explosieven die moe ten worden gemeld. Aanbieden,\nbinnenbrengen, bezit en gebruik volgens Verordening (EU) 2019/1148, Artikel 9."
+      }
+    },
+    {
+      "source_file": "nl-bison-tix-contactlijm.pdf",
+      "sha256": "0c61fb8826f850d425e2d514faa5138bff38c5b9720f4da8aab9bba940c21b51",
+      "trade_name": "Bison Tix",
+      "revision_date": "31/05/2021",
+      "hazard_statements": "H225, H315, H319, H336, H412",
+      "supplemental_hazard_statements": "EUH208",
+      "status": "ok",
+      "issues": [],
+      "llm": {
+        "raw": "{\n  \"trade_name\": \"Bison Tix\",\n  \"revision_date\": \"31.05.2021\",\n  \"hazard_codes\": [\"H225\", \"H315\", \"H319\", \"H336\", \"H412\", \"EUH208\"]\n}",
+        "duration_s": 10.54
+      },
+      "sections": {
+        "header": "Bladzijde: 1/14\nVeiligheidsinformatieblad\nvolgens 1907/2006/EG, Artikel 31\ndatum van de druk: 31.05.2021 Herziening van: 31.05.2021Versienummer 32\n52.1.13\nRUBRIEK 1: Identificatie van de stof of het mengsel en van de vennootschap/\nonderneming",
+        "1.1": "· 1.1 Productidentificatie\n· Handelsnaam: Bison Tix",
+        "2.2": "· 2.2 Etiketteringselementen\n· Etikettering overeenkomstig Verordening (EG) nr. 1272/2008\nHet product is geclassificeerd en geëtiketteerd volgens de CLP-verordening.\n(Vervolg op blz. 2)\n NL-NL \n6305090 - GRF BISON/CONTACT TIX TI 750ML*6 L221\nwww.griffon.eu 1/14\nGRF BISON/CONTACT TIX TI 750ML*6 L221\nBladzijde: 2/14\nVeiligheidsinformatieblad\nvolgens 1907/2006/EG, Artikel 31\ndatum van de druk: 31.05.2021 Herziening van: 31.05.2021Versienummer 32\nHandelsnaam: Bison Tix\n(Vervolg van blz. 1)\n52.1.13\n· Gevarenpictogrammen\nGHS02\n GHS07\n· Signaalwoord Gevaar\n· Gevaaraanduidende componenten voor de etikettering:\nbutanon\nmethylcyclohexaan\nethylacetaat\naceton\n· Gevarenaanduidingen\nH225 Licht ontvlambare vloeistof en damp.\nH315 Veroorzaakt huidirritatie.\nH319 Veroorzaakt ernstige oogirritatie.\nH336 Kan slaperigheid of duizeligheid veroorzaken.\nH412 Schadelijk voor in het water levende organismen, met langdurige gevolgen.\n· Veiligheidsaanbevelingen\nP101 Bij het inwinnen van medisch advies, de verpakking of het e tiket ter beschikking\nhouden.\nP102 Buiten het ber eik van kinderen houden.\nP210 Verwijderd houden van warmte, hete oppervlakken, vonken, op en vuur en andere\nontstekingsbronnen. Niet roken.\nP261 Inademing van damp vermijden.\nP370+P378 In geval van brand: Blussen met: waternevel, alcoholbe stendig schuim, bluspoeder,\nkooldioxide.\nP403+P233 Op een goed geventileerde plaats bewaren. In goed gesloten verpakking bewaren.\nP501 De inhoud/verpakking afvoeren overeenkomstig de nationale voorschriften.\n· Aanvullende gegevens:\nEUH208 Bevat pijnhars. Kan een allergische reactie veroorzaken.\nProdukt bevat: Precursoren voor explosieven die moeten worden g emeld. Aanbieden,\nbinnenbrengen, bezit en gebruik volgens Verordening (EU) 2019/1148, Artikel 9.\n· Etikettering van pakketten met een totale inhoud van ten hoogste 125 ml\n· Gevarenpictogrammen\nGHS02\n GHS07\n· Signaalwoord Gevaar\n· Gevaaraanduidende componenten voor de etikettering:\nbutanon\nmethylcyclohexaan\nethylacetaat\naceton\n· Gevarenaanduidingen\nH336 Kan slaperigheid of duizeligheid veroorzaken.\n(Vervolg op blz. 3)\n NL-NL \n6305090 - GRF BISON/CONTACT TIX TI 750ML*6 L221\nwww.griffon.eu 2/14\nGRF BISON/CONTACT TIX TI 750ML*6 L221\nBladzijde: 3/14\nVeiligheidsinformatieblad\nvolgens 1907/2006/EG, Artikel 31\ndatum van de druk: 31.05.2021 Herziening van: 31.05.2021Versienummer 32\nHandelsnaam: Bison Tix\n(Vervolg van blz. 2)\n52.1.13\nH412 Schadelijk voor in het water levende organismen, met langdurige gevolgen.\n· Veiligheidsaanbevelingen\nP101 Bij het inwinnen van medisch advies, de verpakking of het e tiket ter beschikking\nhouden.\nP102 Buiten het ber eik van kinderen houden.\nP210 Verwijderd houden van warmte, hete oppervlakken, vonken, op en vuur en andere\nontstekingsbronnen. Niet roken.\nP261 Inademing van damp vermijden.\nP403+P233 Op een goed geventileerde plaats bewaren. In goed gesloten verpakking bewaren.\nP501 De inhoud/verpakking afvoeren overeenkomstig de nationale voorschriften."
+      }
+    },
+    {
+      "source_file": "nl-denso-nd-oil12.pdf",
+      "sha256": "44c1b0fc4d25b03ed9a39b090566c81eeeb1a3e2a93ab4c60a7334ac7d1117ee",
+      "trade_name": "ND-OIL 12",
+      "revision_date": "23/06/2025",
+      "hazard_statements": "H317, H410",
+      "supplemental_hazard_statements": "EUH205",
+      "status": "ok",
+      "issues": [],
+      "llm": {
+        "raw": "{\n  \"trade_name\": \"ND-OIL 12\",\n  \"revision_date\": \"23-06-2025\",\n  \"hazard_codes\": [\"H317\", \"H410\", \"EUH205\"]\n}",
+        "duration_s": 6.24
+      },
+      "sections": {
+        "header": "ND-OIL 12 \nVEILIGHEIDSINFORMATIEBLAD \nvolgens de REACH-verordening (EC) 1907/2006 zoals gewijzigd bij Verordening (EU) \n2020/878 \n \nDATUM VAN UITGAVE: 22.01.2018 \nDATUM HERZIENING: 23.06.2025 \nVERVANGT: 27.11.2023 \n VERSIE:  3.2 \n \nProductcode: 2681 NL - nl Datum herziening: 23-6-2025 1/14 \n \nRUBRIEK 1: Identificatie van de stof of het mengsel en van de vennootschap/onderneming",
+        "1.1": "1.1. Productidentificatie \nProductvorm : Mengsel \nHandelsnaam : ND-OIL 12 \nProductcode : 2681 \nVIB Nummer : 2681 \nUnique Formula Identifier (UFI) : 7QW2-X1FN-W00E-WU8C \nProductgebruik : Professioneel gebruik",
+        "2.2": "2.2. Etiketteringselementen \nEtikettering conform Verordening (EG) Nr. 1272/2008 \nGevarenpictogrammen \n  \n    \nLeverancier \nDENSO Europe B.V. \nHogeweyselaan 165 \n1382 JL Weesp - Netherlands \nT +31-294-493493 - F +31-294-417122 \nEU_DNEU_MSDS_info@eu.denso.com \nwww.denso-am.eu \n \nProductcode: 2681 NL - nl Datum herziening: 23-6-2025 2/14 \n \nSignaalwoord Waarschuwing \nBevat Poly[oxy(methyl-1,2-ethanediyl)], .alfa.-methyl-.omega.-methoxy-; Tris(nonylfenyl)fosfiet \n \nGevarenaanduidingen \nH317 Kan een allergische huidreactie veroorzaken. \nH410 Zeer giftig voor in het water levende organismen, met langdurige gevolgen. \n \nVeiligheidsaanbevelingen \nPreventie \nP273 Voorkom lozing in het milieu. \nP280 Draag beschermende handschoenen. \nReactie \nP302+P352 BIJ CONTACT MET DE HUID: met veel water en zeep wassen. \nP333+P313 Bij huidirritatie of uitslag: Een arts raadplegen. \nP391 Gelekte/gemorste stof opruimen. \n \nEUH zinnen EUH205 - Bevat epoxyverbindingen. Kan een allergische reactie veroorzaken."
+      }
+    },
+    {
+      "source_file": "nl-kroon-emtor-bl5400.pdf",
+      "sha256": "444b07106842e658ac21324562f096802f91b8289ad7abcd0c4aafefe5be1ea3",
+      "trade_name": "Kroon-Oil Emtor BL-5400",
+      "revision_date": "24/06/2024",
+      "hazard_statements": "H318, H412",
+      "supplemental_hazard_statements": "EUH208",
+      "status": "ok",
+      "issues": [],
+      "llm": {
+        "raw": "{\n  \"trade_name\": \"Kroon-Oil Emtor BL-5400\",\n  \"revision_date\": \"24-6-2024\",\n  \"hazard_codes\": [\"H318\", \"H412\", \"EUH208\"]\n}",
+        "duration_s": 6.78
+      },
+      "sections": {
+        "header": "Kroon-Oil Emtor BL-5400 \nVeiligheidsinformatieblad  \n \nvolgens de REACH-verordening (EC) 1907/2006 zoals gewijzigd bij Verordening (EU) 2020/878 \nDatum van uitgave: 17-9-2018   Datum herziening: 24-6-2024   Vervangt versie van: 4-1-2024   Versie: 1.8 \n  \n   \n24-6-2024 (Datum herziening) \n24-6-2024 (Uitgavedatum) \nNL (Nederlands) 1/17 \nRUBRIEK 1: Identificatie van de stof of het mengsel en van de vennootschap/onderneming",
+        "1.1": "1.1. Productidentificatie \nProductvorm : Mengsel \nHandelsnaam : Kroon-Oil Emtor BL-5400 \nUFI : 7J7Y-K88N-Y00A-E32Q \nProductcode : 08.30.03 \nProductgroep : Handelsproduct",
+        "2.2": "2.2. Etiketteringselementen \nEtikettering conform Verordening (EG) Nr. 1272/2008 [CLP] \nGevarenpictogrammen (CLP) : \n \n     \n  GHS05      \nSignaalwoord (CLP) : Gevaar \nBevat : 2-Fenoxyethanol \nGevarenaanduidingen (CLP) : H318 - Veroorzaakt ernstig oogletsel. \nH412 - Schadelijk voor in het water levende organismen, met langdurige gevolgen. \nVeiligheidsaanbevelingen (CLP) : P101 - Bij het inwinnen van medisch advies, de verpakking of het etiket ter beschikking \nhouden. \nP102 - Buiten het bereik van kinderen houden. \nP273 - Voorkom lozing in het milieu. \nP280 - Draag beschermende handschoenen, oogbescherming, beschermende kleding. \nP305+P351+P338+P310 - BIJ CONTACT MET DE OGEN: voorzichtig afspoelen met water \ngedurende een aantal minuten; contactlenzen verwijderen, indien mogelijk; blijven spoelen. \nOnmiddellijk arts raadplegen. \nP501 - Inhoud/verpakking afvoeren naar inzamelpunt voor gevaarlijk of bijzonder afval in \novereenstemming met lokale, regionale, nationale en/of internationale regelgeving. \nEUH zinnen : EUH208 - Bevat 3-iodo-2-propynyl butylcarbamate. Kan een allergische reactie \nveroorzaken."
+      }
+    },
+    {
+      "source_file": "nl-kroon-emtor.pdf",
+      "sha256": "d6f0e53f7870aebd9224229d6bae911e8c4ab8ad83fa9992c541307fe11e6a3c",
+      "trade_name": "Kroon-Oil Emtor",
+      "revision_date": "06/03/2026",
+      "hazard_statements": "H317, H319, H412",
+      "supplemental_hazard_statements": "",
+      "status": "ok",
+      "issues": [],
+      "llm": {
+        "raw": "{\n  \"trade_name\": \"Kroon-Oil Emtor\",\n  \"revision_date\": \"6-3-2026\",\n  \"hazard_codes\": [\"H317\", \"H319\", \"H412\"]\n}",
+        "duration_s": 6.96
+      },
+      "sections": {
+        "header": "Kroon-Oil Emtor\nVeiligheidsinformatieblad\nvolgens de REACH-verordening (EC) 1907/2006 zoals gewijzigd bij Verordening (EU) 2020/878\nDatum van uitgave: 16-5-2018   Datum herziening: 6-3-2026   Vervangt versie van: 12-6-2024   Versie: 2.4\n6-3-2026 (Datum herziening)\n6-3-2026 (Afdrukdatum)\nNL (Nederlands) 1/14\nRUBRIEK 1: Identificatie van de stof of het mengsel en van de vennootschap/onderneming",
+        "1.1": "1.1. Productidentificatie\nProductvorm : Mengsel\nHandelsnaam : Kroon-Oil Emtor\nUFI : 5KN1-X9HM-N00U-JFD3\nProductcode : 08.30.01\nProductgroep : Handelsproduct",
+        "2.2": "2.2. Etiketteringselementen\nEtikettering conform Verordening (EG) Nr. 1272/2008 [CLP]\nGevarenpictogrammen (CLP) :\nGHS07\nSignaalwoord (CLP) : Waarschuwing\nBevat : 1,2-benzisothiazool-3(2H)-on\nGevarenaanduidingen (CLP) : H317 - Kan een allergische huidreactie veroorzaken.\nH319 - Veroorzaakt ernstige oogirritatie.\nH412 - Schadelijk voor in het water levende organismen, met langdurige gevolgen.\nVeiligheidsaanbevelingen (CLP) : P261 - Inademing van nevel, damp vermijden.\nP273 - Voorkom lozing in het milieu.\nP280 - Draag beschermende handschoenen, oogbescherming, beschermende kleding.\nP333+P313 - Bij huidirritatie of uitslag: Een arts raadplegen.\nP337+P313 - Bij aanhoudende oogirritatie: een arts raadplegen.\nP362+P364 - Verontreinigde kleding uittrekken en wassen alvorens deze opnieuw te \ngebruiken.\nP501 - Inhoud/verpakking afvoeren naar inzamelpunt voor gevaarlijk of bijzonder afval in \novereenstemming met lokale, regionale, nationale en/of internationale regelgeving."
+      }
+    },
+    {
+      "source_file": "nl-kroon-pneumolube.pdf",
+      "sha256": "a1d857b6213ec6a251bd3a7ae2ca8617042da4de05079aa5d3143e288691a295",
+      "trade_name": "Kroon-Oil Pneumolube",
+      "revision_date": "23/09/2022",
+      "hazard_statements": "H302, H373",
+      "supplemental_hazard_statements": "",
+      "status": "ok",
+      "issues": [],
+      "llm": {
+        "raw": "{\n  \"trade_name\": \"Kroon-Oil Pneumolube\",\n  \"revision_date\": \"23-9-2022\",\n  \"hazard_codes\": [\"H302\", \"H373\"]\n}",
+        "duration_s": 6.68
+      },
+      "sections": {
+        "header": "Kroon-Oil Pneumolube \nVeiligheidsinformatieblad  \n \nvolgens de REACH-verordening (EC) 1907/2006 zoals gewijzigd bij Verordening (EU) 2020/878 \nDatum van uitgave: 16-5-2018   Datum herziening: 23-9-2022   Vervangt versie van: 9-2-2021   Versie: 1.11 \n  \n   \n23-9-2022 (Datum herziening) \n23-9-2022 (Uitgavedatum) \nNL (Nederlands) 1/13 \nRUBRIEK 1: Identificatie van de stof of het mengsel en van de vennootschap/onderneming",
+        "1.1": "1.1. Productidentificatie \nProductvorm : Mengsel \nHandelsnaam : Kroon-Oil Pneumolube \nUFI : FF90-80C7-Y00A-FDE2 \nProductcode : 08.20.03 \nProductgroep : Handelsproduct",
+        "2.2": "2.2. Etiketteringselementen \nEtikettering conform Verordening (EG) Nr. 1272/2008 [CLP] \nGevarenpictogrammen (CLP) : \n  \n    \n  GHS07 GHS08     \nSignaalwoord (CLP) : Waarschuwing \nBevat : 1,2-ethaandiol \nGevarenaanduidingen (CLP) : H302 - Schadelijk bij inslikken. \nH373 - Kan schade aan organen (nieren) veroorzaken bij langdurige of herhaalde \nblootstelling (bij inslikken). \nVeiligheidsaanbevelingen (CLP) : P264 - Na het werken met dit product handen, onderarmen en gezicht grondig wassen. \nP314 - Bij onwel voelen een arts raadplegen. \nP501 - Inhoud/verpakking afvoeren naar inzamelpunt voor gevaarlijk of bijzonder afval in \novereenstemming met lokale, regionale, nationale en/of internationale regelgeving."
+      }
+    },
+    {
+      "source_file": "nl-kroon-shampoo-wax.pdf",
+      "sha256": "88d473a091722800fd648b4f39148491ab39dc36619a132cfae41b56aa3c1b69",
+      "trade_name": "Kroon-Oil Shampoo Wax",
+      "revision_date": "30/10/2025",
+      "hazard_statements": "H315, H317, H318",
+      "supplemental_hazard_statements": "",
+      "status": "ok",
+      "issues": [],
+      "llm": {
+        "raw": "{\n  \"trade_name\": \"Kroon-Oil Shampoo Wax\",\n  \"revision_date\": \"30-10-2025\",\n  \"hazard_codes\": [\"H315\", \"H317\", \"H318\"]\n}",
+        "duration_s": 7.76
+      },
+      "sections": {
+        "header": "Kroon-Oil Shampoo Wax \nVeiligheidsinformatieblad  \n \nvolgens de REACH-verordening (EC) 1907/2006 zoals gewijzigd bij Verordening (EU) 2020/878 \nDatum van uitgave: 14-9-2018   Datum herziening: 30-10-2025   Vervangt versie van: 6-6-2023   Versie: 3.0 \n  \n \n   \n30-10-2025 (Datum herziening) \n30-10-2025 (Uitgavedatum) \nNL (Nederlands) 1/17 \n \nRUBRIEK 1: Identificatie van de stof of het mengsel en van de vennootschap/onderneming",
+        "1.1": "1.1. Productidentificatie \nProductvorm : Mengsel \nHandelsnaam : Kroon-Oil Shampoo Wax \nProductcode : 09.50.14 \nProducttype : Detergentia \nProductgroep : Handelsproduct",
+        "2.2": "2.2. Etiketteringselementen \nEtikettering conform Verordening (EG) Nr. 1272/2008 [CLP] \nGevarenpictogrammen (CLP) : \n  \n    \n  GHS05 GHS07     \nSignaalwoord (CLP) : Gevaar \n \nGevarenaanduidingen (CLP) : H315 - Veroorzaakt huidirritatie. \nH317 - Kan een allergische huidreactie veroorzaken. \nH318 - Veroorzaakt ernstig oogletsel. \nVeiligheidsaanbevelingen (CLP) : P101 - Bij het inwinnen van medisch advies, de verpakking of het etiket ter beschikking \nhouden. \nP102 - Buiten het bereik van kinderen houden. \nP261 - Inademing van stof/rook/gas/nevel/damp/spuitnevel vermijden. \nP264 - Na het werken met dit product handen grondig wassen. \nP280 - Draag oogbescherming, beschermende handschoenen, beschermende kleding. \nP302+P352 - BIJ CONTACT MET DE HUID: met veel water en zeep wassen. \nP305+P351+P338+P310 - BIJ CONTACT MET DE OGEN: voorzichtig afspoelen met water \ngedurende een aantal minuten; contactlenzen verwijderen, indien mogelijk; blijven spoelen. \nOnmiddellijk arts raadplegen. \nP501 - Inhoud/verpakking afvoeren naar inzamelpunt voor gevaarlijk of bijzonder afval in \novereenstemming met lokale, regionale, nationale en/of internationale regelgeving."
+      }
+    }
+  ]
+}

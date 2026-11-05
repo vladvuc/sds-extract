@@ -9,6 +9,14 @@
 !.env.example
 *.local
 *.log
+# Extraction run logs are part of the submission
+!output/**/run.log
+.venv/
+__pycache__/
+.pytest_cache/
+.nicegui/
 !/.idea/
 /.idea/*
 !/.idea/runConfigurations
+
+data/

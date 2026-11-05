@@ -1,0 +1,200 @@
+2026-11-05 13:31:04,765 INFO run 2026-11-05T12-31-04Z_1a701a started: 18 PDF(s) in /Users/vlad/Documents/1-Projects/kramp-zadatak/data
+2026-11-05 13:31:04,765 INFO run settings: {"run_id": "2026-11-05T12-31-04Z_1a701a", "started_at": "2026-11-05T12:31:04+00:00", "input_dir": "/Users/vlad/Documents/1-Projects/kramp-zadatak/data", "prompt_version": "v1", "package_version": "0.1.0", "python": "3.12.12", "platform": "macOS-26.7.1-arm64-arm-64bit", "llm": {"model": "qwen2.5:7b", "host": "http://localhost:11434", "temperature": 0.0, "seed": 56, "num_ctx": 8192, "think": null, "timeout_s": 600.0, "extra": {}}, "ollama_version": "0.40.14"}
+2026-11-05 13:31:04,855 INFO de-buderus-silcadur-hfs.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:31:10,924 INFO de-buderus-silcadur-hfs.pdf: model answered in 6.1s: {
+  "trade_name": "SILCADUR HFS Kleber",
+  "revision_date": null,
+  "hazard_codes": ["H315", "H319"]
+}
+2026-11-05 13:31:10,924 WARNING de-buderus-silcadur-hfs.pdf: revision_date: model returned no value
+2026-11-05 13:31:10,924 WARNING de-buderus-silcadur-hfs.pdf: revision_date: filled from labelled date 29/08/2024
+2026-11-05 13:31:10,924 INFO de-buderus-silcadur-hfs.pdf: status=needs_review
+2026-11-05 13:31:10,969 INFO de-fischer-kilo-kleber.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:31:15,694 INFO de-fischer-kilo-kleber.pdf: model answered in 4.7s: {
+  "trade_name": "320 KILO KLEBER 80 ml",
+  "revision_date": "27.03.2019",
+  "hazard_codes": ["EUH208", "EUH210"]
+}
+2026-11-05 13:31:15,695 INFO de-fischer-kilo-kleber.pdf: status=ok
+2026-11-05 13:31:15,698 ERROR de-hornbach-grossformat-kleber.pdf: extraction failed
+Traceback (most recent call last):
+  File "/Users/vlad/Documents/1-Projects/kramp-zadatak/src/sds_extract/pipeline.py", line 62, in process_file
+    sections = load_sections(path)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/vlad/Documents/1-Projects/kramp-zadatak/src/sds_extract/pdf.py", line 74, in load_sections
+    return split_sections(read_pdf_text(path))
+                          ^^^^^^^^^^^^^^^^^^^
+  File "/Users/vlad/Documents/1-Projects/kramp-zadatak/src/sds_extract/pdf.py", line 36, in read_pdf_text
+    return [page.extract_text() or "" for page in PdfReader(path).pages]
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vlad/Documents/1-Projects/kramp-zadatak/.venv/lib/python3.12/site-packages/pypdf/_page.py", line 2587, in __iter__
+    for i in range(len(self)):
+                   ^^^^^^^^^
+  File "/Users/vlad/Documents/1-Projects/kramp-zadatak/.venv/lib/python3.12/site-packages/pypdf/_page.py", line 2510, in __len__
+    return self.length_function()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vlad/Documents/1-Projects/kramp-zadatak/.venv/lib/python3.12/site-packages/pypdf/_doc_common.py", line 388, in get_num_pages
+    self._flatten(self._readonly)
+  File "/Users/vlad/Documents/1-Projects/kramp-zadatak/.venv/lib/python3.12/site-packages/pypdf/_doc_common.py", line 1386, in _flatten
+    pages = self.root_object.get("/Pages", NullObject()).get_object()
+            ^^^^^^^^^^^^^^^^
+  File "/Users/vlad/Documents/1-Projects/kramp-zadatak/.venv/lib/python3.12/site-packages/pypdf/_reader.py", line 247, in root_object
+    root = self.trailer.get(TK.ROOT, NullObject()).get_object()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vlad/Documents/1-Projects/kramp-zadatak/.venv/lib/python3.12/site-packages/pypdf/generic/_base.py", line 396, in get_object
+    obj: Optional[PdfObject] = self.pdf.get_object(self)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vlad/Documents/1-Projects/kramp-zadatak/.venv/lib/python3.12/site-packages/pypdf/_reader.py", line 642, in get_object
+    retval = self._encryption.decrypt_object(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vlad/Documents/1-Projects/kramp-zadatak/.venv/lib/python3.12/site-packages/pypdf/_encryption.py", line 974, in decrypt_object
+    return cf.decrypt_object(obj, strict=strict)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vlad/Documents/1-Projects/kramp-zadatak/.venv/lib/python3.12/site-packages/pypdf/_encryption.py", line 109, in decrypt_object
+    obj[key] = self.decrypt_object(value, strict=strict)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vlad/Documents/1-Projects/kramp-zadatak/.venv/lib/python3.12/site-packages/pypdf/_encryption.py", line 112, in decrypt_object
+    obj[i] = self.decrypt_object(obj[i], strict=strict)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vlad/Documents/1-Projects/kramp-zadatak/.venv/lib/python3.12/site-packages/pypdf/_encryption.py", line 109, in decrypt_object
+    obj[key] = self.decrypt_object(value, strict=strict)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vlad/Documents/1-Projects/kramp-zadatak/.venv/lib/python3.12/site-packages/pypdf/_encryption.py", line 101, in decrypt_object
+    data = self.str_crypt.decrypt(obj.original_bytes, strict=strict)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vlad/Documents/1-Projects/kramp-zadatak/.venv/lib/python3.12/site-packages/pypdf/_crypt_providers/_fallback.py", line 69, in decrypt
+    raise DependencyError(_DEPENDENCY_ERROR_STR)
+pypdf.errors.DependencyError: cryptography>=3.1 is required for AES algorithm
+2026-11-05 13:31:15,703 INFO de-hornbach-grossformat-kleber.pdf: status=error
+2026-11-05 13:31:15,704 ERROR de-rockwool-moertelkleber.pdf: extraction failed
+Traceback (most recent call last):
+  File "/Users/vlad/Documents/1-Projects/kramp-zadatak/src/sds_extract/pipeline.py", line 62, in process_file
+    sections = load_sections(path)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/vlad/Documents/1-Projects/kramp-zadatak/src/sds_extract/pdf.py", line 74, in load_sections
+    return split_sections(read_pdf_text(path))
+                          ^^^^^^^^^^^^^^^^^^^
+  File "/Users/vlad/Documents/1-Projects/kramp-zadatak/src/sds_extract/pdf.py", line 36, in read_pdf_text
+    return [page.extract_text() or "" for page in PdfReader(path).pages]
+                                                  ^^^^^^^^^^^^^^^
+  File "/Users/vlad/Documents/1-Projects/kramp-zadatak/.venv/lib/python3.12/site-packages/pypdf/_reader.py", line 168, in __init__
+    self._handle_encryption(password)
+  File "/Users/vlad/Documents/1-Projects/kramp-zadatak/.venv/lib/python3.12/site-packages/pypdf/_reader.py", line 213, in _handle_encryption
+    self._encryption.verify(pwd, strict=self.strict) == PasswordType.NOT_DECRYPTED
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vlad/Documents/1-Projects/kramp-zadatak/.venv/lib/python3.12/site-packages/pypdf/_encryption.py", line 1108, in verify
+    key, rc = self.verify_v4(pwd) if self.V <= 4 else self.verify_v5(pwd)
+                                                      ^^^^^^^^^^^^^^^^^^^
+  File "/Users/vlad/Documents/1-Projects/kramp-zadatak/.venv/lib/python3.12/site-packages/pypdf/_encryption.py", line 1144, in verify_v5
+    key = AlgV5.verify_owner_password(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vlad/Documents/1-Projects/kramp-zadatak/.venv/lib/python3.12/site-packages/pypdf/_encryption.py", line 557, in verify_owner_password
+    AlgV5.calculate_hash(R, password, o_value[32:40], u_value[:48])
+  File "/Users/vlad/Documents/1-Projects/kramp-zadatak/.venv/lib/python3.12/site-packages/pypdf/_encryption.py", line 602, in calculate_hash
+    e = aes_cbc_encrypt(k[:16], k[16:32], k1 * 64)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vlad/Documents/1-Projects/kramp-zadatak/.venv/lib/python3.12/site-packages/pypdf/_crypt_providers/_fallback.py", line 89, in aes_cbc_encrypt
+    raise DependencyError(_DEPENDENCY_ERROR_STR)
+pypdf.errors.DependencyError: cryptography>=3.1 is required for AES algorithm
+2026-11-05 13:31:15,704 INFO de-rockwool-moertelkleber.pdf: status=error
+2026-11-05 13:31:15,918 INFO en-aerosol-21868895.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:31:21,794 INFO en-aerosol-21868895.pdf: model answered in 5.9s: {
+  "trade_name": "WD-40® Specialist® Engine Starter",
+  "revision_date": "05.09.2022",
+  "hazard_codes": ["H315", "H336", "H412", "H222", "H229", "EUH019"]
+}
+2026-11-05 13:31:21,797 INFO en-aerosol-21868895.pdf: status=ok
+2026-11-05 13:31:22,069 INFO en-wd40-fast-release-penetrant.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:31:29,321 INFO en-wd40-fast-release-penetrant.pdf: model answered in 7.2s: {
+  "trade_name": "WD-40®   Specialist®  Fast Release Penetrant",
+  "revision_date": "09.10.2025",
+  "hazard_codes": ["H315", "H336", "H411", "H222", "H229"]
+}
+2026-11-05 13:31:29,325 INFO en-wd40-fast-release-penetrant.pdf: status=ok
+2026-11-05 13:31:29,423 INFO en-wd40-multi-use-non-aerosol.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:31:36,300 INFO en-wd40-multi-use-non-aerosol.pdf: model answered in 6.9s: {
+  "trade_name": "WD-40® MULTI-USE PRODUCT - [Non-Aerosol]",
+  "revision_date": "10.07.2015",
+  "hazard_codes": ["H226", "H304", "H336", "EUH066"]
+}
+2026-11-05 13:31:36,302 INFO en-wd40-multi-use-non-aerosol.pdf: status=ok
+2026-11-05 13:31:36,390 INFO nl-bison-groene-aanslagvreter.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:31:42,575 INFO nl-bison-groene-aanslagvreter.pdf: model answered in 6.2s: {
+  "trade_name": "Bison Groene Aanslagvreter",
+  "revision_date": "29.07.2024",
+  "hazard_codes": ["H315", "H318", "H410"]
+}
+2026-11-05 13:31:42,576 INFO nl-bison-groene-aanslagvreter.pdf: status=ok
+2026-11-05 13:31:42,874 INFO nl-bison-kit-verdunner.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:31:50,589 INFO nl-bison-kit-verdunner.pdf: model answered in 7.7s: {
+  "trade_name": "VERDUNNER VOOR BISON KIT",
+  "revision_date": "10.07.2026",
+  "hazard_codes": ["H225", "H315", "H319", "H336", "H304", "H411"]
+}
+2026-11-05 13:31:50,589 WARNING nl-bison-kit-verdunner.pdf: hazard_statements: model missed H373 found in section 2.2
+2026-11-05 13:31:50,589 INFO nl-bison-kit-verdunner.pdf: status=needs_review
+2026-11-05 13:31:50,834 INFO nl-bison-kneedbaar-hout.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:32:01,993 INFO nl-bison-kneedbaar-hout.pdf: model answered in 11.2s: {
+  "trade_name": "BISON KNEEDBAAR HOUT",
+  "revision_date": "23.07.2025",
+  "hazard_codes": ["H225", "H319", "H317", "H336", "EUH066"]
+}
+2026-11-05 13:32:01,996 INFO nl-bison-kneedbaar-hout.pdf: status=ok
+2026-11-05 13:32:02,217 INFO nl-bison-schimmelvreter.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:32:10,733 INFO nl-bison-schimmelvreter.pdf: model answered in 8.5s: {
+  "trade_name": "BISON SCHIMMELVRETER",
+  "revision_date": "15.07.2026",
+  "hazard_codes": ["H290", "H314", "H410", "EUH206"]
+}
+2026-11-05 13:32:10,734 INFO nl-bison-schimmelvreter.pdf: status=ok
+2026-11-05 13:32:11,042 INFO nl-bison-tix-av-chv.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:32:19,408 INFO nl-bison-tix-av-chv.pdf: model answered in 8.4s: {
+  "trade_name": "Bison Tix AV+CHV",
+  "revision_date": "08.05.2026",
+  "hazard_codes": ["H225", "H315", "H319", "H336", "H412", "EUH208"]
+}
+2026-11-05 13:32:19,409 INFO nl-bison-tix-av-chv.pdf: status=ok
+2026-11-05 13:32:19,581 INFO nl-bison-tix-contactlijm.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:32:30,120 INFO nl-bison-tix-contactlijm.pdf: model answered in 10.5s: {
+  "trade_name": "Bison Tix",
+  "revision_date": "31.05.2021",
+  "hazard_codes": ["H225", "H315", "H319", "H336", "H412", "EUH208"]
+}
+2026-11-05 13:32:30,123 INFO nl-bison-tix-contactlijm.pdf: status=ok
+2026-11-05 13:32:30,409 INFO nl-denso-nd-oil12.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:32:36,647 INFO nl-denso-nd-oil12.pdf: model answered in 6.2s: {
+  "trade_name": "ND-OIL 12",
+  "revision_date": "23-06-2025",
+  "hazard_codes": ["H317", "H410", "EUH205"]
+}
+2026-11-05 13:32:36,648 INFO nl-denso-nd-oil12.pdf: status=ok
+2026-11-05 13:32:37,056 INFO nl-kroon-emtor-bl5400.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:32:43,840 INFO nl-kroon-emtor-bl5400.pdf: model answered in 6.8s: {
+  "trade_name": "Kroon-Oil Emtor BL-5400",
+  "revision_date": "24-6-2024",
+  "hazard_codes": ["H318", "H412", "EUH208"]
+}
+2026-11-05 13:32:43,840 INFO nl-kroon-emtor-bl5400.pdf: status=ok
+2026-11-05 13:32:43,967 INFO nl-kroon-emtor.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:32:50,931 INFO nl-kroon-emtor.pdf: model answered in 7.0s: {
+  "trade_name": "Kroon-Oil Emtor",
+  "revision_date": "6-3-2026",
+  "hazard_codes": ["H317", "H319", "H412"]
+}
+2026-11-05 13:32:50,931 INFO nl-kroon-emtor.pdf: status=ok
+2026-11-05 13:32:51,241 INFO nl-kroon-pneumolube.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:32:57,919 INFO nl-kroon-pneumolube.pdf: model answered in 6.7s: {
+  "trade_name": "Kroon-Oil Pneumolube",
+  "revision_date": "23-9-2022",
+  "hazard_codes": ["H302", "H373"]
+}
+2026-11-05 13:32:57,919 INFO nl-kroon-pneumolube.pdf: status=ok
+2026-11-05 13:32:58,112 INFO nl-kroon-shampoo-wax.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:33:05,875 INFO nl-kroon-shampoo-wax.pdf: model answered in 7.8s: {
+  "trade_name": "Kroon-Oil Shampoo Wax",
+  "revision_date": "30-10-2025",
+  "hazard_codes": ["H315", "H317", "H318"]
+}
+2026-11-05 13:33:05,875 INFO nl-kroon-shampoo-wax.pdf: status=ok
+2026-11-05 13:33:05,878 INFO run 2026-11-05T12-31-04Z_1a701a finished in 121.1s: {'ok': 14, 'needs_review': 2, 'error': 2}
+2026-11-05 13:33:05,879 INFO wrote /Users/vlad/Documents/1-Projects/kramp-zadatak/output/runs/2026-11-05T12-31-04Z_1a701a and appended to /Users/vlad/Documents/1-Projects/kramp-zadatak/output/history.jsonl
