@@ -53,13 +53,12 @@ uv run pytest
 PDF ─► pypdf text ─► slice header, section 1.1, section 2.2 ─► Qwen (JSON schema, temperature 0) ─► validate ─► JSON / CSV / log
 ```
 
-**Input discovery** (`pipeline.py`): All files are checked recursively for the PDF signature; names and extensions are ignored. Real PDFs are processed even with odd names or no extension; `fake.pdf` is skipped and logged; hidden files are ignored. Records store relative path and SHA-256.
+**Input discovery** (`pipeline.py`): All files are checked recursively for the PDF signature; names and extensions are ignored. Real PDFs are processed even with odd names or no extension; files without a PDF signature are skipped and logged; hidden files are ignored. Records store relative path and SHA-256.
 
-1. **Text extraction:** `pypdf` reads content-stream order, avoiding layout-merger issues; AES-encrypted PDFs without passwords work via `pypdf[crypto]` (`cryptography` ≥3.1).
+1. **Text extraction:** `pypdf` reads content-stream order, avoiding layout-merger issues; AES-encrypted PDFs without passwords work via `pypdf[crypto]` (`cryptography` ≥50.0.2).
 2. **Section slicing** (`pdf.py`): Regex locates the header above 1.1, section 1.1, and section 2.2, so the model never sees section 3 (where H-codes could be confused with mixture codes) and input stays small/fast.
 3. **LLM extraction** (`llm.py`): Ollama structured output is constrained by a Pydantic schema. The model returns the date as written and Python formats it.
 4. **Validation** (`validate.py`): Model values are checked against source: trade name verbatim in 1.1; revision date via regex labels; hazard codes absent from 2.2 are dropped, missed ones reported. Disagreement sets `needs_review`; nothing is silently corrected except a missing date, which is filled from the labelled date and flagged.
-5.
 
 The UI in `ui.py` is optional. It shows the latest run listed in `output/history.jsonl` and starts `sds-extract extract` as a subprocess, so the CLI remains the only way to run the pipeline.
 
@@ -102,19 +101,27 @@ The pipeline was run on two datasets, in this order:
 
 ### Usage
 
+Default: read `data/`, write to `output/`.
+
+```bash
+uv run sds-extract extract
+```
+
+Custom, for a specific dataset: pick the input folder and keep its runs apart.
+
 ```bash
 uv run sds-extract extract --pdf-dir dl-data --out output/dl-data
 uv run sds-extract extract --pdf-dir data --out output/provided
 ```
 
-- Each dataset gets its own `runs/` folder.
+- Each dataset gets its own `runs/` folder and `history.jsonl`.
 
 ## Known limitations
 
-- **Text-based PDFs only.** Scanned SDSs need OCR, which is not implemented.
-- **Section headings must follow the standard numbering.** Slicing expects "1.1" and "2.2". When a section is not found, the model and the checks fall back to the whole text, and the record is flagged.
-- **Language support. The revision cover NL, EN and DE.** Other languages still work through the model, but without the date cross-check.
-- **Tested on 21 SDSs only.** See [Test data](#test-data). Other supplier layouts may need new heading or label patterns.
+- **Text-based PDFs only** - Scanned SDSs need OCR, which is not implemented.
+- **Section headings must follow the standard numbering** - Slicing expects "1.1" and "2.2". When a section is not found, the model receives `(not found)` for it, the checks fall back to the whole text, and the record is flagged.
+- **Revision labels cover NL, EN and DE** - Other languages still work through the model, but without the date cross-check.
+- **Tested on 21 SDSs only** - See [Test data](#test-data). Other supplier layouts may need new heading or label patterns.
 - **Password-protected PDFs are not supported.** Encrypted PDFs open only when no user password is needed.
 - **Speed depends on hardware.** A 7B model on a laptop takes several seconds per document.
 - **The hidden text layer** that pypdf skips is an observation from these PDFs, not a guarantee for every supplier.
@@ -139,11 +146,11 @@ Filled from `config.json` in the run folder that produced the submitted output.
 `PROMPT_VERSION` in `llm.py` selects the system prompt and is recorded in `config.json`.
 
 - `system_v1.j2` keeps v1 reproducible (`PROMPT_VERSION = "v1"`)
-- `*.v2` adds German/English labels, more ignored dates, and a rule for section 1.1 without a trade-name label.
+- `system_v2.j2` adds German/English labels, more ignored dates, and a rule for section 1.1 without a trade-name label.
 
 ## Use of AI assistants
 
-**Claude Code** helped explore the PDFs, compare text extractors. **Pi Coding Agent** and **Claude Code** help write the code and tests.
+**Claude Code** helped explore the PDFs, compare text extractors. **Pi Coding Agent** and **Claude Code** help write the code, tests and review.
 
 The output was verified in these ways:
 

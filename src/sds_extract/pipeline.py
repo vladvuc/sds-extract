@@ -16,7 +16,7 @@ from datetime import datetime, timezone
 from importlib.metadata import version
 from pathlib import Path
 
-from .llm import PROMPT_VERSION, Extractor
+from .llm import PROMPT_VERSION, Extractor, LlmUnavailable
 from .pdf import load_sections
 from .validate import validate
 
@@ -84,6 +84,8 @@ def process_file(path: Path, extract: Extractor, root: Path | None = None) -> di
         }
         for issue in checked.issues:
             log.warning("%s: %s", path.name, issue)
+    except LlmUnavailable:
+        raise  # not a document problem: stop the run instead of failing every remaining PDF
     except Exception as exc:  # one bad document must not stop the batch
         log.exception("%s: extraction failed", path.name)
         record |= {
@@ -142,6 +144,11 @@ def read_history(out_dir: Path) -> list[dict]:
 def load_run(out_dir: Path, run_id: str) -> dict:
     """A run folder as {"run": config + summary, "documents": [...]}."""
     run_dir = out_dir / "runs" / run_id
+    if not run_dir.is_dir():
+        raise FileNotFoundError(
+            f"run {run_id} is listed in {out_dir / HISTORY_FILE} but {run_dir} does not exist; "
+            f"delete {HISTORY_FILE} together with the runs folder"
+        )
     config = json.loads((run_dir / "config.json").read_text(encoding="utf-8"))
     results = json.loads((run_dir / "results.json").read_text(encoding="utf-8"))
     documents = results.pop("documents")
@@ -159,6 +166,8 @@ def load_latest(out_dir: Path) -> dict:
 def run(
     pdf_dir: Path, out_dir: Path, extract: Extractor, run_info: dict | None = None
 ) -> dict:
+    if not pdf_dir.is_dir():
+        raise NotADirectoryError(f"input folder {pdf_dir} does not exist")
     started_at = datetime.now(timezone.utc)
     run_id = new_run_id(started_at)
     run_dir = out_dir / "runs" / run_id

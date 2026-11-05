@@ -3,7 +3,9 @@
 from dataclasses import asdict, dataclass, field
 from typing import Protocol
 
+import httpx  # dependency of the ollama client
 from jinja2 import Environment, PackageLoader, StrictUndefined
+from ollama import Client, ResponseError
 
 from .pdf import SdsSections
 from .validate import LlmExtraction
@@ -63,45 +65,54 @@ class Extractor(Protocol):
     def __call__(self, sections: SdsSections) -> LlmResult: ...
 
 
+class LlmUnavailable(Exception):
+    """Ollama cannot serve any request (server down, model not pulled, server error).
+
+    Not a problem of one document, so the pipeline stops the whole run instead of
+    recording the same error for every remaining PDF.
+    """
+
+
 class OllamaExtractor:
     def __init__(self, settings: LlmSettings):
-        from ollama import (
-            Client,  # imported lazily so tests and the UI do not need a running Ollama
-        )
-
         self.settings = settings
         self.client = Client(host=settings.host, timeout=settings.timeout_s)
 
-    def server_version(self) -> str | None:
-        import httpx  # dependency of the ollama client
-
+    def server_version(self) -> str:
+        """Version of the Ollama server, used as the reachability check before a run."""
+        host = self.settings.host
         try:
-            response = httpx.get(f"{self.settings.host}/api/version", timeout=5)
-            response.raise_for_status()
-            data = response.json()
-        except (httpx.HTTPError, httpx.InvalidURL, ValueError):
-            return None
-        version = data.get("version") if isinstance(data, dict) else None
-        return version if isinstance(version, str) else None
+            response = httpx.get(f"{host}/api/version", timeout=5)
+        except httpx.ConnectError as exc:
+            raise LlmUnavailable(
+                f"Ollama is not reachable at {host}. Start it with: ollama serve"
+            ) from exc
+        response.raise_for_status()
+        return response.json()["version"]
 
     def __call__(self, sections: SdsSections) -> LlmResult:
         s = self.settings
-        response = self.client.chat(
-            model=s.model,
-            messages=[
-                {"role": "system", "content": SYSTEM_PROMPT},
-                {"role": "user", "content": build_user_prompt(sections)},
-            ],
-            format=LlmExtraction.model_json_schema(),
-            options={
-                "temperature": s.temperature,
-                "seed": s.seed,
-                "num_ctx": s.num_ctx,
-                **s.extra,
-            },
-            # None is dropped by the client (exclude_none), so it is only sent when set
-            think=s.think,
-        )
+        try:
+            response = self.client.chat(
+                model=s.model,
+                messages=[
+                    {"role": "system", "content": SYSTEM_PROMPT},
+                    {"role": "user", "content": build_user_prompt(sections)},
+                ],
+                format=LlmExtraction.model_json_schema(),
+                options={
+                    "temperature": s.temperature,
+                    "seed": s.seed,
+                    "num_ctx": s.num_ctx,
+                    **s.extra,
+                },
+                # None is dropped by the client (exclude_none), so it is only sent when set
+                think=s.think,
+            )
+        except httpx.ConnectError as exc:
+            raise LlmUnavailable(f"Ollama at {s.host} is no longer reachable: {exc}") from exc
+        except ResponseError as exc:  # non-2xx, e.g. 404 when the model is not pulled
+            raise LlmUnavailable(f"Ollama rejected the request for model {s.model!r}: {exc}") from exc
         raw = response.message.content or ""
         duration = (response.total_duration or 0) / 1e9
         return LlmResult(

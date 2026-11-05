@@ -6,24 +6,28 @@ import sys
 from importlib.metadata import version
 from pathlib import Path
 
-from .llm import LlmSettings
+from .llm import LlmSettings, LlmUnavailable, OllamaExtractor
+
+log = logging.getLogger("sds_extract")
+
+
+def _settings(args: argparse.Namespace) -> LlmSettings:
+    return LlmSettings(
+        model=args.model, host=args.host, num_ctx=args.num_ctx, think=args.think
+    )
 
 
 def _extract(args: argparse.Namespace) -> int:
-    from .llm import OllamaExtractor
     from .pipeline import run
 
-    settings = LlmSettings(
-        model=args.model, host=args.host, num_ctx=args.num_ctx, think=args.think
-    )
+    settings = _settings(args)
     extractor = OllamaExtractor(settings)
-    run_info = {"llm": settings.as_dict(), "ollama_version": extractor.server_version()}
-    if run_info["ollama_version"] is None:
-        logging.getLogger("sds_extract").error(
-            "Ollama is not reachable at %s. Start it with: ollama serve", args.host
-        )
+    try:
+        run_info = {"llm": settings.as_dict(), "ollama_version": extractor.server_version()}
+        result = run(args.pdf_dir, args.out, extractor, run_info)
+    except LlmUnavailable as exc:
+        log.error("%s", exc)
         return 2
-    result = run(args.pdf_dir, args.out, extractor, run_info)
     return 1 if result["run"]["counts"]["error"] else 0
 
 
@@ -49,7 +53,7 @@ def _ui(args: argparse.Namespace) -> int:
             file=sys.stderr,
         )
         return 2
-    serve(pdf_dir=args.pdf_dir, out_dir=args.out, port=args.port, model=args.model)
+    serve(pdf_dir=args.pdf_dir, out_dir=args.out, port=args.port, settings=_settings(args))
     return 0
 
 
@@ -60,9 +64,10 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument(
         "--version", action="version", version=f"%(prog)s {version('sds-extract')}"
     )
-    sub =p.add_subparsers(dest="command", required=True)
+    sub = p.add_subparsers(dest="command", required=True)
 
     def common(sp: argparse.ArgumentParser) -> None:
+        """Options shared by `extract` and `ui`; the UI forwards them to the `extract` subprocess."""
         sp.add_argument(
             "--pdf-dir",
             type=Path,
@@ -80,24 +85,24 @@ def build_parser() -> argparse.ArgumentParser:
             default=LlmSettings.model,
             help=f"Ollama model (default: {LlmSettings.model})",
         )
+        sp.add_argument("--host", default=LlmSettings.host, help="Ollama URL")
+        sp.add_argument(
+            "--num-ctx",
+            type=int,
+            default=LlmSettings.num_ctx,
+            help="context window in tokens",
+        )
+        sp.add_argument(
+            "--think",
+            action=argparse.BooleanOptionalAction,
+            default=None,
+            help="enable/disable reasoning for thinking models such as qwen3 (default: not sent)",
+        )
 
     ex = sub.add_parser(
         "extract", help="run the pipeline into output/runs/<run_id>/ and append to output/history.jsonl"
     )
     common(ex)
-    ex.add_argument("--host", default=LlmSettings.host, help="Ollama URL")
-    ex.add_argument(
-        "--num-ctx",
-        type=int,
-        default=LlmSettings.num_ctx,
-        help="context window in tokens",
-    )
-    ex.add_argument(
-        "--think",
-        action=argparse.BooleanOptionalAction,
-        default=None,
-        help="enable/disable reasoning for thinking models such as qwen3 (default: not sent)",
-    )
     ex.set_defaults(func=_extract)
 
     se = sub.add_parser(

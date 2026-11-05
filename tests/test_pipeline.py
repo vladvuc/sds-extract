@@ -17,9 +17,9 @@ from pathlib import Path
 
 import pytest
 
-from sds_extract.llm import LlmResult
+from sds_extract.llm import LlmResult, LlmUnavailable
 from sds_extract.pdf import SdsSections, load_sections
-from sds_extract.pipeline import discover_inputs, load_latest, new_run_id, read_history, run
+from sds_extract.pipeline import discover_inputs, load_latest, load_run, new_run_id, read_history, run
 from sds_extract.validate import (
     HAZARD_CODE,
     LlmExtraction,
@@ -195,6 +195,40 @@ def test_run_folders_and_history(tmp_path):
     with pytest.raises(KeyboardInterrupt):
         run(inbox, out, crash)
     assert len(read_history(out)) == 2  # the interrupted run has a folder with config.json, but no history line
+
+
+def test_run_stops_when_the_llm_is_unavailable(tmp_path):
+    """A dead Ollama or a missing model is not a per-document error: no results, no history line."""
+    inbox, out = tmp_path / "inbox", tmp_path / "out"
+    inbox.mkdir()
+    shutil.copy(PDFS[0], inbox / PDFS[0].name)
+
+    def dead_ollama(_sections):
+        raise LlmUnavailable("model not found")
+
+    with pytest.raises(LlmUnavailable):
+        run(inbox, out, dead_ollama)
+    assert read_history(out) == []
+    assert not list(out.glob("runs/*/results.json"))
+
+
+def test_missing_input_folder_is_an_error(tmp_path):
+    """A typo in --pdf-dir must not produce an empty 'successful' run."""
+    out = tmp_path / "out"
+    with pytest.raises(NotADirectoryError):
+        run(tmp_path / "nope", out, fake_model)
+    assert not out.exists()
+
+
+def test_history_entry_without_run_folder_is_reported(tmp_path):
+    inbox, out = tmp_path / "inbox", tmp_path / "out"
+    inbox.mkdir()
+    shutil.copy(PDFS[0], inbox / PDFS[0].name)
+    result = run(inbox, out, fake_model)
+    shutil.rmtree(out / "runs")
+
+    with pytest.raises(FileNotFoundError, match="history.jsonl"):
+        load_run(out, result["run"]["run_id"])
 
 
 def test_file_names_do_not_matter(tmp_path):

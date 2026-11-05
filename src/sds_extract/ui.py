@@ -11,6 +11,7 @@ from urllib.parse import quote
 
 from nicegui import app, ui
 
+from .llm import LlmSettings
 from .pipeline import load_latest
 
 STATUS_STYLE = {
@@ -24,11 +25,6 @@ HAZARD_STYLE = {
     "H3": "bg-rose-100 text-rose-800",
     "H4": "bg-teal-100 text-teal-800",
 }
-
-
-def _load(out_dir: Path) -> dict:
-    """Latest finished run listed in history.jsonl."""
-    return load_latest(out_dir)
 
 
 def _badge(status: str) -> None:
@@ -57,13 +53,13 @@ def _codes(label: str, joined: str | None) -> None:
                 ui.label(c).classes(f"{cls} font-mono text-sm px-2 py-0.5 rounded")
 
 
-def serve(pdf_dir: Path, out_dir: Path, port: int, model: str) -> None:
+def serve(pdf_dir: Path, out_dir: Path, port: int, settings: LlmSettings) -> None:
     pdf_dir, out_dir = pdf_dir.resolve(), out_dir.resolve()
     app.add_static_files("/pdfs", pdf_dir)
 
     @ui.page("/")
     def index() -> None:
-        state = {"data": _load(out_dir), "selected": 0, "running": False}
+        state = {"data": load_latest(out_dir), "selected": 0, "running": False}
         ui.query("body").classes("bg-slate-50")
         ui.colors(primary="#0f172a")
 
@@ -181,31 +177,42 @@ def serve(pdf_dir: Path, out_dir: Path, port: int, model: str) -> None:
                 return
             state["running"] = True
             run_button.props("loading")
-            log_panel.clear()
-            log_box.open()
-            cmd = [
-                sys.executable,
-                "-m",
-                "sds_extract",
-                "extract",
-                "--pdf-dir",
-                str(pdf_dir),
-                "--out",
-                str(out_dir),
-                "--model",
-                model_input.value,
-            ]
-            log_panel.push("$ sds-extract " + " ".join(cmd[4:]))
-            proc = await asyncio.create_subprocess_exec(
-                *cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.STDOUT
-            )
-            assert proc.stdout
-            async for line in proc.stdout:
-                log_panel.push(line.decode(errors="replace").rstrip())
-            code = await proc.wait()
-            state["running"] = False
-            run_button.props(remove="loading")
-            state["data"], state["selected"] = _load(out_dir), 0
+            try:
+                log_panel.clear()
+                log_box.open()
+                # Same options the UI was started with, so a non-default host/num_ctx/think reaches the run.
+                cmd = [
+                    sys.executable,
+                    "-m",
+                    "sds_extract",
+                    "extract",
+                    "--pdf-dir",
+                    str(pdf_dir),
+                    "--out",
+                    str(out_dir),
+                    "--model",
+                    model_input.value,
+                    "--host",
+                    settings.host,
+                    "--num-ctx",
+                    str(settings.num_ctx),
+                ]
+                if settings.think is not None:
+                    cmd.append("--think" if settings.think else "--no-think")
+                log_panel.push("$ sds-extract " + " ".join(cmd[4:]))
+                proc = await asyncio.create_subprocess_exec(
+                    *cmd,
+                    stdout=asyncio.subprocess.PIPE,
+                    stderr=asyncio.subprocess.STDOUT,
+                )
+                assert proc.stdout
+                async for line in proc.stdout:
+                    log_panel.push(line.decode(errors="replace").rstrip())
+                code = await proc.wait()
+                state["data"], state["selected"] = load_latest(out_dir), 0
+            finally:  # whatever failed, the button must become usable again
+                state["running"] = False
+                run_button.props(remove="loading")
             run_summary.refresh()
             doc_list.refresh()
             detail.refresh()
@@ -222,7 +229,7 @@ def serve(pdf_dir: Path, out_dir: Path, port: int, model: str) -> None:
                 run_summary()
             with ui.row().classes("items-center gap-2"):
                 model_input = (
-                    ui.input("Ollama model", value=model)
+                    ui.input("Ollama model", value=settings.model)
                     .props("dense outlined")
                     .classes("w-48")
                 )
@@ -240,6 +247,12 @@ def serve(pdf_dir: Path, out_dir: Path, port: int, model: str) -> None:
                     log_panel = ui.log(max_lines=1000).classes("w-full h-64 text-xs")
                 detail()
 
+    # Loopback only: the page serves the PDF folder and can start extraction runs.
     ui.run(
-        port=port, title="SDS extraction review", reload=False, show=False, favicon="🧪"
+        host="127.0.0.1",
+        port=port,
+        title="SDS extraction review",
+        reload=False,
+        show=False,
+        favicon="📁",
     )
