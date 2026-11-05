@@ -1,0 +1,134 @@
+2026-11-05 13:45:14,999 INFO run 2026-11-05T12-45-14Z_1704b8 started: 18 PDF(s) in /Users/vlad/Documents/1-Projects/kramp-zadatak/data
+2026-11-05 13:45:14,999 INFO run settings: {"run_id": "2026-11-05T12-45-14Z_1704b8", "started_at": "2026-11-05T12:45:14+00:00", "input_dir": "/Users/vlad/Documents/1-Projects/kramp-zadatak/data", "prompt_version": "v2", "package_version": "0.1.0", "python": "3.12.12", "platform": "macOS-26.7.1-arm64-arm-64bit", "llm": {"model": "qwen2.5:7b", "host": "http://localhost:11434", "temperature": 0.0, "seed": 56, "num_ctx": 8192, "think": null, "timeout_s": 600.0, "extra": {}}, "ollama_version": "0.40.14"}
+2026-11-05 13:45:15,091 INFO de-buderus-silcadur-hfs.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:45:19,094 INFO de-buderus-silcadur-hfs.pdf: model answered in 4.0s: {
+  "trade_name": "SILCADUR HFS Kleber",
+  "revision_date": null,
+  "hazard_codes": ["H315", "H319"]
+}
+2026-11-05 13:45:19,094 WARNING de-buderus-silcadur-hfs.pdf: revision_date: model returned no value
+2026-11-05 13:45:19,094 WARNING de-buderus-silcadur-hfs.pdf: revision_date: filled from labelled date 29/08/2024
+2026-11-05 13:45:19,094 INFO de-buderus-silcadur-hfs.pdf: status=needs_review
+2026-11-05 13:45:19,138 INFO de-fischer-kilo-kleber.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:45:23,879 INFO de-fischer-kilo-kleber.pdf: model answered in 4.7s: {
+  "trade_name": "320 KILO KLEBER 80 ml",
+  "revision_date": "27.03.2019",
+  "hazard_codes": ["EUH208", "EUH210"]
+}
+2026-11-05 13:45:23,880 INFO de-fischer-kilo-kleber.pdf: status=ok
+2026-11-05 13:45:24,200 INFO de-hornbach-grossformat-kleber.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:45:29,778 INFO de-hornbach-grossformat-kleber.pdf: model answered in 5.6s: {
+  "trade_name": "GROSSFORMAT KLEBER",
+  "revision_date": "22.01.2026",
+  "hazard_codes": ["H315", "H318", "H335"]
+}
+2026-11-05 13:45:29,780 INFO de-hornbach-grossformat-kleber.pdf: status=ok
+2026-11-05 13:45:29,808 INFO de-rockwool-moertelkleber.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:45:34,725 INFO de-rockwool-moertelkleber.pdf: model answered in 4.9s: {
+  "trade_name": "Mörtelkleber",
+  "revision_date": "4.3.2025",
+  "hazard_codes": ["H315", "H318"]
+}
+2026-11-05 13:45:34,725 INFO de-rockwool-moertelkleber.pdf: status=ok
+2026-11-05 13:45:34,936 INFO en-aerosol-21868895.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:45:43,067 INFO en-aerosol-21868895.pdf: model answered in 8.1s: {
+  "trade_name": "WD-40® Specialist® Engine Starter",
+  "revision_date": "05.09.2022",
+  "hazard_codes": ["H315", "H336", "H412", "H222", "H229", "EUH019"]
+}
+2026-11-05 13:45:43,075 INFO en-aerosol-21868895.pdf: status=ok
+2026-11-05 13:45:43,348 INFO en-wd40-fast-release-penetrant.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:45:49,907 INFO en-wd40-fast-release-penetrant.pdf: model answered in 6.6s: {
+  "trade_name": "WD-40® Specialist® Fast Release Penetrant",
+  "revision_date": "09.10.2025",
+  "hazard_codes": ["H315", "H336", "H411", "H222", "H229"]
+}
+2026-11-05 13:45:49,910 INFO en-wd40-fast-release-penetrant.pdf: status=ok
+2026-11-05 13:45:49,996 INFO en-wd40-multi-use-non-aerosol.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:45:59,000 INFO en-wd40-multi-use-non-aerosol.pdf: model answered in 9.0s: {
+  "trade_name": "WD-40® MULTI-USE PRODUCT - [Non-Aerosol]",
+  "revision_date": "10.07.2015 / 0003",
+  "hazard_codes": ["H226", "H304", "H336", "EUH066"]
+}
+2026-11-05 13:45:59,002 WARNING en-wd40-multi-use-non-aerosol.pdf: revision_date: cannot parse '10.07.2015 / 0003'
+2026-11-05 13:45:59,002 INFO en-wd40-multi-use-non-aerosol.pdf: status=needs_review
+2026-11-05 13:45:59,096 INFO nl-bison-groene-aanslagvreter.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:46:07,665 INFO nl-bison-groene-aanslagvreter.pdf: model answered in 8.6s: {
+  "trade_name": "Bison Groene Aanslagvreter",
+  "revision_date": "29.07.2024",
+  "hazard_codes": ["H315", "H318", "H410"]
+}
+2026-11-05 13:46:07,667 INFO nl-bison-groene-aanslagvreter.pdf: status=ok
+2026-11-05 13:46:07,997 INFO nl-bison-kit-verdunner.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:46:18,228 INFO nl-bison-kit-verdunner.pdf: model answered in 10.2s: {
+  "trade_name": "VERDUNNER VOOR BISON KIT",
+  "revision_date": "10.07.2026",
+  "hazard_codes": ["H225", "H315", "H319", "H336", "H304", "H411"]
+}
+2026-11-05 13:46:18,228 WARNING nl-bison-kit-verdunner.pdf: hazard_statements: model missed H373 found in section 2.2
+2026-11-05 13:46:18,228 INFO nl-bison-kit-verdunner.pdf: status=needs_review
+2026-11-05 13:46:18,498 INFO nl-bison-kneedbaar-hout.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:46:29,297 INFO nl-bison-kneedbaar-hout.pdf: model answered in 10.8s: {
+  "trade_name": "BISON KNEEDBAAR HOUT",
+  "revision_date": "23.07.2025",
+  "hazard_codes": ["H225", "H319", "H317", "H336", "EUH066"]
+}
+2026-11-05 13:46:29,298 INFO nl-bison-kneedbaar-hout.pdf: status=ok
+2026-11-05 13:46:29,561 INFO nl-bison-schimmelvreter.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:46:39,126 INFO nl-bison-schimmelvreter.pdf: model answered in 9.6s: {
+  "trade_name": "BISON SCHIMMELVRETER",
+  "revision_date": "15.07.2026",
+  "hazard_codes": ["H290", "H314", "H410", "EUH206"]
+}
+2026-11-05 13:46:39,126 INFO nl-bison-schimmelvreter.pdf: status=ok
+2026-11-05 13:46:39,430 INFO nl-bison-tix-av-chv.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:46:48,687 INFO nl-bison-tix-av-chv.pdf: model answered in 9.3s: {
+  "trade_name": "Bison Tix AV+CHV",
+  "revision_date": "08.05.2026",
+  "hazard_codes": ["H225", "H315", "H319", "H336", "H412", "EUH208"]
+}
+2026-11-05 13:46:48,688 INFO nl-bison-tix-av-chv.pdf: status=ok
+2026-11-05 13:46:48,862 INFO nl-bison-tix-contactlijm.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:47:00,626 INFO nl-bison-tix-contactlijm.pdf: model answered in 11.8s: {
+  "trade_name": "Bison Tix",
+  "revision_date": "31.05.2021",
+  "hazard_codes": ["H225", "H315", "H319", "H336", "H412", "EUH208"]
+}
+2026-11-05 13:47:00,628 INFO nl-bison-tix-contactlijm.pdf: status=ok
+2026-11-05 13:47:00,920 INFO nl-denso-nd-oil12.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:47:08,574 INFO nl-denso-nd-oil12.pdf: model answered in 7.7s: {
+  "trade_name": "ND-OIL 12",
+  "revision_date": "23-06-2025",
+  "hazard_codes": ["H317", "H410", "EUH205"]
+}
+2026-11-05 13:47:08,574 INFO nl-denso-nd-oil12.pdf: status=ok
+2026-11-05 13:47:08,957 INFO nl-kroon-emtor-bl5400.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:47:15,538 INFO nl-kroon-emtor-bl5400.pdf: model answered in 6.6s: {
+  "trade_name": "Kroon-Oil Emtor BL-5400",
+  "revision_date": "24-6-2024",
+  "hazard_codes": ["H318", "H412", "EUH208"]
+}
+2026-11-05 13:47:15,538 INFO nl-kroon-emtor-bl5400.pdf: status=ok
+2026-11-05 13:47:15,664 INFO nl-kroon-emtor.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:47:21,491 INFO nl-kroon-emtor.pdf: model answered in 5.8s: {
+  "trade_name": "Kroon-Oil Emtor",
+  "revision_date": "6-3-2026",
+  "hazard_codes": ["H317", "H319", "H412"]
+}
+2026-11-05 13:47:21,492 INFO nl-kroon-emtor.pdf: status=ok
+2026-11-05 13:47:21,765 INFO nl-kroon-pneumolube.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:47:28,019 INFO nl-kroon-pneumolube.pdf: model answered in 6.2s: {
+  "trade_name": "Kroon-Oil Pneumolube",
+  "revision_date": "23-9-2022",
+  "hazard_codes": ["H302", "H373"]
+}
+2026-11-05 13:47:28,019 INFO nl-kroon-pneumolube.pdf: status=ok
+2026-11-05 13:47:28,218 INFO nl-kroon-shampoo-wax.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:47:36,154 INFO nl-kroon-shampoo-wax.pdf: model answered in 7.9s: {
+  "trade_name": "Kroon-Oil Shampoo Wax",
+  "revision_date": "30-10-2025",
+  "hazard_codes": ["H315", "H317", "H318"]
+}
+2026-11-05 13:47:36,155 INFO nl-kroon-shampoo-wax.pdf: status=ok
+2026-11-05 13:47:36,156 INFO run 2026-11-05T12-45-14Z_1704b8 finished in 141.2s: {'ok': 15, 'needs_review': 3, 'error': 0}
+2026-11-05 13:47:36,157 INFO wrote /Users/vlad/Documents/1-Projects/kramp-zadatak/output/runs/2026-11-05T12-45-14Z_1704b8 and appended to /Users/vlad/Documents/1-Projects/kramp-zadatak/output/history.jsonl

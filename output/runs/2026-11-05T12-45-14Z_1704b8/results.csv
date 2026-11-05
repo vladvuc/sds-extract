@@ -1,0 +1,19 @@
+source_file,trade_name,revision_date,hazard_statements,supplemental_hazard_statements,status,issues
+de-buderus-silcadur-hfs.pdf,SILCADUR HFS Kleber,29/08/2024,"H315, H319",,needs_review,revision_date: model returned no value | revision_date: filled from labelled date 29/08/2024
+de-fischer-kilo-kleber.pdf,320 KILO KLEBER 80 ml,27/03/2019,,"EUH208, EUH210",ok,
+de-hornbach-grossformat-kleber.pdf,GROSSFORMAT KLEBER,22/01/2026,"H315, H318, H335",,ok,
+de-rockwool-moertelkleber.pdf,Mörtelkleber,04/03/2025,"H315, H318",,ok,
+en-aerosol-21868895.pdf,WD-40® Specialist® Engine Starter,05/09/2022,"H315, H336, H412, H222, H229",EUH019,ok,
+en-wd40-fast-release-penetrant.pdf,WD-40® Specialist® Fast Release Penetrant,09/10/2025,"H315, H336, H411, H222, H229",,ok,
+en-wd40-multi-use-non-aerosol.pdf,WD-40® MULTI-USE PRODUCT - [Non-Aerosol],,"H226, H304, H336",EUH066,needs_review,revision_date: cannot parse '10.07.2015 / 0003'
+nl-bison-groene-aanslagvreter.pdf,Bison Groene Aanslagvreter,29/07/2024,"H315, H318, H410",,ok,
+nl-bison-kit-verdunner.pdf,VERDUNNER VOOR BISON KIT,10/07/2026,"H225, H315, H319, H336, H304, H411",,needs_review,hazard_statements: model missed H373 found in section 2.2
+nl-bison-kneedbaar-hout.pdf,BISON KNEEDBAAR HOUT,23/07/2025,"H225, H319, H317, H336",EUH066,ok,
+nl-bison-schimmelvreter.pdf,BISON SCHIMMELVRETER,15/07/2026,"H290, H314, H410",EUH206,ok,
+nl-bison-tix-av-chv.pdf,Bison Tix AV+CHV,08/05/2026,"H225, H315, H319, H336, H412",EUH208,ok,
+nl-bison-tix-contactlijm.pdf,Bison Tix,31/05/2021,"H225, H315, H319, H336, H412",EUH208,ok,
+nl-denso-nd-oil12.pdf,ND-OIL 12,23/06/2025,"H317, H410",EUH205,ok,
+nl-kroon-emtor-bl5400.pdf,Kroon-Oil Emtor BL-5400,24/06/2024,"H318, H412",EUH208,ok,
+nl-kroon-emtor.pdf,Kroon-Oil Emtor,06/03/2026,"H317, H319, H412",,ok,
+nl-kroon-pneumolube.pdf,Kroon-Oil Pneumolube,23/09/2022,"H302, H373",,ok,
+nl-kroon-shampoo-wax.pdf,Kroon-Oil Shampoo Wax,30/10/2025,"H315, H317, H318",,ok,

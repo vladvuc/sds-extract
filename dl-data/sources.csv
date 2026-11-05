@@ -1,0 +1,19 @@
+file,language,source_url,edge_case
+nl-bison-kit-verdunner.pdf,nl,https://assets.indi.nl/pdf/nl_NL/sds/assSDS-120636899.pdf,same source and layout as the assignment samples
+nl-kroon-emtor.pdf,nl,https://assets.indi.nl/pdf/nl_NL/sds/assSDS-121522446.pdf,Kroon-Oil layout with d-m-yyyy date
+nl-kroon-emtor-bl5400.pdf,nl,https://assets.indi.nl/pdf/nl_NL/sds/assSDS-123695380.pdf,Kroon-Oil layout
+nl-kroon-shampoo-wax.pdf,nl,https://docs.delftechniek.nl/vib/KRO0769.pdf,Kroon-Oil layout
+nl-kroon-pneumolube.pdf,nl,https://cdn.toolstation.nl/safety_sheet/83064.pdf,older Kroon-Oil revision from 2022
+nl-bison-schimmelvreter.pdf,nl,https://www.combifit.nl/media/fb/e3/79/1786176514/Veiligheidsinformatieblad_Griffon_schimmelvreter.pdf,many EUH codes
+nl-bison-kneedbaar-hout.pdf,nl,https://documents.klium.nl/c2c72b63-780e-4c0e-958a-7f9e54a98336/nl/veiligheidsblad-bison-teak-1492643-nl.pdf,"label 'Herziening van', date split by a space: 23.07.20 25"
+nl-bison-groene-aanslagvreter.pdf,nl,https://docs.delftechniek.nl/vib/570706.pdf,"label 'Herziening van', date glued to next word"
+nl-bison-tix-av-chv.pdf,nl,https://docs.delftechniek.nl/vib/570261.pdf,Bison layout
+nl-bison-tix-contactlijm.pdf,nl,https://www.bouwmaat.nl/cdn/shop/files/VIB_Griffon_Tix_prof_Contactlijm_2.5_liter.pdf,"older 2021 revision, label 'Herziening van'"
+nl-denso-nd-oil12.pdf,nl,https://assets.denso-am.eu/production/attachments/SDS_252-2681-G_ND-OIL12_NL_nl_3.2_23.06.2025_2681.pdf,different vendor layout
+en-wd40-fast-release-penetrant.pdf,en,https://sichdatonline.chemical-check.de/Dokumente/3275/EUF-0053_0021_09-10-2025_EN.pdf,"'Revision date / version', trade name on line after 1.1"
+en-wd40-multi-use-non-aerosol.pdf,en,https://cdn.aws.toolstation.com/items/coshh/72129.pdf,old 2015 revision
+en-aerosol-21868895.pdf,en,https://cdn.autoteiledirekt.de/uploads/hazard/passports/21868895-EN-1.pdf,aerosol with H222/H229
+de-buderus-silcadur-hfs.pdf,de,https://www.heizungsdiscount24.de/pdf/Buderus-Kleber-Silcadur-HFS-6-5-kg-Sicherheitsdatenblatt.pdf,first page is a shop cover page
+de-fischer-kilo-kleber.pdf,de,https://media.contorion.de/content/pdf/fischer/at/320-KILO-KLEBER-80-ML-AUS-DE-1.0.pdf,"only print date in header, EUH codes with colon"
+de-hornbach-grossformat-kleber.pdf,de,https://media.hornbach.de/hb/msds/as.185278424.pdf,"AES-encrypted, words glued without spaces"
+de-rockwool-moertelkleber.pdf,de,https://www.rockwool.com/syssiteassets/rw-d/sicherheitsdatenblatter-sdb/hochbau-und-flachdach/sdb-moertelkleber-de-rockwool.pdf,"AES-encrypted, d.m.yyyy date"
