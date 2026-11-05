@@ -259,6 +259,48 @@ def test_file_names_do_not_matter(tmp_path):
         assert _fields(d) == _fields(exp)
 
 
+@pytest.mark.parametrize(
+    "status,body",
+    [
+        (200, b"<html>proxy login</html>"),  # not JSON
+        (200, b'{"no_version": true}'),  # JSON without the field
+        (200, b'{"version": 7}'),  # wrong type
+        (502, b"bad gateway"),  # non-2xx
+    ],
+)
+def test_server_version_check_reports_unusable_hosts(status, body):
+    """Any reply that is not Ollama's /api/version JSON becomes LlmUnavailable (CLI exit 2), not a traceback."""
+    import threading
+    from http.server import BaseHTTPRequestHandler, HTTPServer
+
+    from sds_extract.llm import LlmSettings, OllamaExtractor
+
+    class Handler(BaseHTTPRequestHandler):
+        def do_GET(self):
+            self.send_response(status)
+            self.end_headers()
+            self.wfile.write(body)
+
+        def log_message(self, *_):
+            pass
+
+    server = HTTPServer(("127.0.0.1", 0), Handler)
+    threading.Thread(target=server.serve_forever, daemon=True).start()
+    try:
+        extractor = OllamaExtractor(LlmSettings(host=f"http://127.0.0.1:{server.server_port}"))
+        with pytest.raises(LlmUnavailable):
+            extractor.server_version()
+    finally:
+        server.shutdown()
+
+
+def test_server_version_check_reports_closed_port():
+    from sds_extract.llm import LlmSettings, OllamaExtractor
+
+    with pytest.raises(LlmUnavailable, match="ollama serve"):
+        OllamaExtractor(LlmSettings(host="http://127.0.0.1:1")).server_version()
+
+
 def test_prompt_templates_render():
     from sds_extract.llm import PROMPT_VERSION, _templates, build_user_prompt, render_system_prompt
 

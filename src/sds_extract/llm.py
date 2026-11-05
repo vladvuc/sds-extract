@@ -83,12 +83,19 @@ class OllamaExtractor:
         host = self.settings.host
         try:
             response = httpx.get(f"{host}/api/version", timeout=5)
+            response.raise_for_status()
+            version = response.json()["version"]
         except httpx.ConnectError as exc:
             raise LlmUnavailable(
                 f"Ollama is not reachable at {host}. Start it with: ollama serve"
             ) from exc
-        response.raise_for_status()
-        return response.json()["version"]
+        except httpx.HTTPError as exc:  # timeout, non-2xx, protocol error
+            raise LlmUnavailable(f"Ollama at {host} did not answer /api/version: {exc}") from exc
+        except (ValueError, KeyError, TypeError) as exc:  # not the JSON Ollama returns, e.g. a proxy page
+            raise LlmUnavailable(f"{host}/api/version is not an Ollama server: {exc!r}") from exc
+        if not isinstance(version, str):
+            raise LlmUnavailable(f"{host}/api/version returned an unexpected version value: {version!r}")
+        return version
 
     def __call__(self, sections: SdsSections) -> LlmResult:
         s = self.settings
