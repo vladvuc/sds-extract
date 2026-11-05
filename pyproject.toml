@@ -5,9 +5,11 @@ description = "Extract trade name, revision date and hazard statements from Safe
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "cryptography>=50.0.2",
+    "jinja2>=3.1",
     "ollama>=0.6",
     "pydantic>=2.7",
-    "pypdf>=5.0",
+    "pypdf[crypto]>=5.0",
 ]
 
 [project.optional-dependencies]

@@ -1,0 +1,20 @@
+{
+  "run_id": "2026-11-05T12-44-34Z_d78ad5",
+  "started_at": "2026-11-05T12:44:34+00:00",
+  "input_dir": "/Users/vlad/Documents/1-Projects/kramp-zadatak/data",
+  "prompt_version": "v2",
+  "package_version": "0.1.0",
+  "python": "3.12.12",
+  "platform": "macOS-26.7.1-arm64-arm-64bit",
+  "llm": {
+    "model": "qwen2.5:7b",
+    "host": "http://localhost:11434",
+    "temperature": 0.0,
+    "seed": 56,
+    "num_ctx": 8192,
+    "think": null,
+    "timeout_s": 600.0,
+    "extra": {}
+  },
+  "ollama_version": "0.40.14"
+}

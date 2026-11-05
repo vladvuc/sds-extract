@@ -3,32 +3,36 @@
 from dataclasses import asdict, dataclass, field
 from typing import Protocol
 
+from jinja2 import Environment, PackageLoader, StrictUndefined
+
 from .pdf import SdsSections
 from .validate import LlmExtraction
 
-PROMPT_VERSION = "v1"
+# Prompts live in src/sds_extract/prompts/ as Jinja2 templates:
+#   system_<version>.j2  system prompt, one file per version (older versions are kept to reproduce old runs)
+#   user.j2              user message with the three SDS excerpts
+PROMPT_VERSION = "v2"
 
-SYSTEM_PROMPT = """You extract product master data from European Safety Data Sheets (SDS).
-The SDS can be in any EU language (for example Dutch, English, German, French).
-You receive three excerpts: the document HEADER, SECTION 1.1 (product identifier) and SECTION 2.2 (label elements).
+_templates = Environment(
+    loader=PackageLoader("sds_extract", "prompts"),
+    undefined=StrictUndefined,  # a missing variable is an error, never a silently empty prompt
+    autoescape=False,  # plain text, not HTML
+)
 
-Rules:
-- trade_name: the value of "Trade name", "Product name", "Handelsnaam" or equivalent in SECTION 1.1.
-  Copy it exactly as written, same language, same capitalisation. Never include UFI, product code, article number or packaging.
-- revision_date: the date labelled "Revision date", "Date of revision", "Revisiedatum", "herzien op", "Datum herziening" or equivalent.
-  Copy it exactly as written. Ignore the print date ("Afdrukdatum"), issue date ("Datum van uitgave") and the date of the replaced version.
-- hazard_codes: every H-code (H followed by 3 digits) and EUH-code (EUH followed by 3 digits) that appears in SECTION 2.2,
-  including codes listed under supplementary information ("Aanvullende gegevens"). Do not include P-codes.
-  If the hazard statements are "not applicable" and no codes appear, return an empty list.
-- Use null when a value is not present. Never invent values."""
+
+def render_system_prompt(version: str = PROMPT_VERSION) -> str:
+    return _templates.get_template(f"system_{version}.j2").render()
 
 
 def build_user_prompt(sections: SdsSections) -> str:
-    return (
-        f"### HEADER\n{sections.header or '(not found)'}\n\n"
-        f"### SECTION 1.1\n{sections.product_identifier or '(not found)'}\n\n"
-        f"### SECTION 2.2\n{sections.label_elements or '(not found)'}"
+    return _templates.get_template("user.j2").render(
+        header=sections.header,
+        product_identifier=sections.product_identifier,
+        label_elements=sections.label_elements,
     )
+
+
+SYSTEM_PROMPT = render_system_prompt()
 
 
 @dataclass

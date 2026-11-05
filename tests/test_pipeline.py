@@ -220,3 +220,34 @@ def test_file_names_do_not_matter(tmp_path):
         exp = EXPECTED[d["sha256"]]
         assert d["status"] == "ok", d["issues"]
         assert _fields(d) == _fields(exp)
+
+
+def test_prompt_templates_render():
+    from sds_extract.llm import PROMPT_VERSION, _templates, build_user_prompt, render_system_prompt
+
+    versions = sorted(n[len("system_") : -len(".j2")] for n in _templates.list_templates() if n.startswith("system_"))
+    assert PROMPT_VERSION in versions
+    for v in versions:
+        text = render_system_prompt(v)
+        assert "hazard_codes" in text and "{" not in text  # rendered, no leftover template syntax
+    empty = build_user_prompt(SdsSections("", "", "", ""))
+    assert empty.count("(not found)") == 3
+    filled = build_user_prompt(SdsSections("HDR", "1.1 Handelsnaam: X", "2.2 H225", ""))
+    assert "HDR" in filled and "Handelsnaam: X" in filled and "H225" in filled
+
+
+def test_aes_encrypted_pdf_is_readable(tmp_path):
+    """AES-encrypted PDFs that open without a password need pypdf[crypto] (cryptography>=3.1)."""
+    if not PDFS:
+        pytest.skip("needs a PDF in data/")
+    from pypdf import PdfReader, PdfWriter
+
+    source = PDFS[0]
+    writer = PdfWriter(clone_from=PdfReader(source))
+    writer.encrypt(user_password="", owner_password="owner-only", algorithm="AES-256")
+    encrypted = tmp_path / "encrypted"  # no extension on purpose
+    with encrypted.open("wb") as f:
+        writer.write(f)
+
+    assert PdfReader(encrypted).is_encrypted
+    assert load_sections(encrypted).full_text == _sections(source).full_text
