@@ -41,28 +41,28 @@ def _find(pattern: str, text: str, start: int = 0) -> re.Match[str] | None:
     return re.compile(pattern, re.MULTILINE | re.IGNORECASE).search(text, start)
 
 
-def _slice(text: str, start_pat: str, end_pats: list[str]) -> tuple[str, int]:
-    start = _find(start_pat, text)
+def _slice(text: str, start: re.Match[str] | None, end_pats: list[str]) -> str:
+    """Text from the heading match `start` up to the first of `end_pats` (or the end of the text)."""
     if not start:
-        return "", 0
+        return ""
     ends = [m.start() for p in end_pats if (m := _find(p, text, start.end()))]
     end = min(ends) if ends else len(text)
-    return text[start.start() : end].strip(), end
+    return text[start.start() : end].strip()
 
 
 def split_sections(pages: list[str]) -> SdsSections:
     full = "\n".join(pages)
-    product, _ = _slice(
-        full, _HEADING.format(num=r"1\.1"), [_HEADING.format(num=r"1\.2")]
-    )
-    labels, _ = _slice(
-        full, _HEADING.format(num=r"2\.2"), [_HEADING.format(num=r"2\.3"), _SECTION_3]
+    start_11 = _find(_HEADING.format(num=r"1\.1"), full)
+    product = _slice(full, start_11, [_HEADING.format(num=r"1\.2")])
+    labels = _slice(
+        full,
+        _find(_HEADING.format(num=r"2\.2"), full),
+        [_HEADING.format(num=r"2\.3"), _SECTION_3],
     )
 
     # Header = everything before the first 1.1 heading. Searching the full text, not only page 1,
     # handles cover pages added by web shops. Keep the last part only, closest to section 1.
-    head_end = _find(_HEADING.format(num=r"1\.1"), full)
-    header = full[: head_end.start()][-HEADER_MAX_CHARS:] if head_end else full[:HEADER_MAX_CHARS]
+    header = full[: start_11.start()][-HEADER_MAX_CHARS:] if start_11 else full[:HEADER_MAX_CHARS]
 
     return SdsSections(
         header=header.strip(),

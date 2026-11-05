@@ -17,9 +17,9 @@ from pathlib import Path
 
 import pytest
 
-from sds_extract.llm import LlmResult
+from sds_extract.llm import LlmResult, LlmUnavailable
 from sds_extract.pdf import SdsSections, load_sections
-from sds_extract.pipeline import discover_inputs, load_latest, new_run_id, read_history, run
+from sds_extract.pipeline import discover_inputs, load_latest, load_run, new_run_id, read_history, run
 from sds_extract.validate import (
     HAZARD_CODE,
     LlmExtraction,
@@ -197,6 +197,40 @@ def test_run_folders_and_history(tmp_path):
     assert len(read_history(out)) == 2  # the interrupted run has a folder with config.json, but no history line
 
 
+def test_run_stops_when_the_llm_is_unavailable(tmp_path):
+    """A dead Ollama or a missing model is not a per-document error: no results, no history line."""
+    inbox, out = tmp_path / "inbox", tmp_path / "out"
+    inbox.mkdir()
+    shutil.copy(PDFS[0], inbox / PDFS[0].name)
+
+    def dead_ollama(_sections):
+        raise LlmUnavailable("model not found")
+
+    with pytest.raises(LlmUnavailable):
+        run(inbox, out, dead_ollama)
+    assert read_history(out) == []
+    assert not list(out.glob("runs/*/results.json"))
+
+
+def test_missing_input_folder_is_an_error(tmp_path):
+    """A typo in --pdf-dir must not produce an empty 'successful' run."""
+    out = tmp_path / "out"
+    with pytest.raises(NotADirectoryError):
+        run(tmp_path / "nope", out, fake_model)
+    assert not out.exists()
+
+
+def test_history_entry_without_run_folder_is_reported(tmp_path):
+    inbox, out = tmp_path / "inbox", tmp_path / "out"
+    inbox.mkdir()
+    shutil.copy(PDFS[0], inbox / PDFS[0].name)
+    result = run(inbox, out, fake_model)
+    shutil.rmtree(out / "runs")
+
+    with pytest.raises(FileNotFoundError, match="history.jsonl"):
+        load_run(out, result["run"]["run_id"])
+
+
 def test_file_names_do_not_matter(tmp_path):
     """Odd names, missing extensions, subfolders and duplicates are processed; non-PDFs are skipped."""
     known = [p for p in PDFS if _sha(p) in EXPECTED][:2]
@@ -223,6 +257,48 @@ def test_file_names_do_not_matter(tmp_path):
         exp = EXPECTED[d["sha256"]]
         assert d["status"] == "ok", d["issues"]
         assert _fields(d) == _fields(exp)
+
+
+@pytest.mark.parametrize(
+    "status,body",
+    [
+        (200, b"<html>proxy login</html>"),  # not JSON
+        (200, b'{"no_version": true}'),  # JSON without the field
+        (200, b'{"version": 7}'),  # wrong type
+        (502, b"bad gateway"),  # non-2xx
+    ],
+)
+def test_server_version_check_reports_unusable_hosts(status, body):
+    """Any reply that is not Ollama's /api/version JSON becomes LlmUnavailable (CLI exit 2), not a traceback."""
+    import threading
+    from http.server import BaseHTTPRequestHandler, HTTPServer
+
+    from sds_extract.llm import LlmSettings, OllamaExtractor
+
+    class Handler(BaseHTTPRequestHandler):
+        def do_GET(self):
+            self.send_response(status)
+            self.end_headers()
+            self.wfile.write(body)
+
+        def log_message(self, *_):
+            pass
+
+    server = HTTPServer(("127.0.0.1", 0), Handler)
+    threading.Thread(target=server.serve_forever, daemon=True).start()
+    try:
+        extractor = OllamaExtractor(LlmSettings(host=f"http://127.0.0.1:{server.server_port}"))
+        with pytest.raises(LlmUnavailable):
+            extractor.server_version()
+    finally:
+        server.shutdown()
+
+
+def test_server_version_check_reports_closed_port():
+    from sds_extract.llm import LlmSettings, OllamaExtractor
+
+    with pytest.raises(LlmUnavailable, match="ollama serve"):
+        OllamaExtractor(LlmSettings(host="http://127.0.0.1:1")).server_version()
 
 
 def test_prompt_templates_render():
