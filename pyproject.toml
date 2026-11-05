@@ -1,6 +1,6 @@
 [project]
 name = "sds-extract"
-version = "0.1.0"
+version = "0.1.1"
 description = "Extract trade name, revision date and hazard statements from Safety Data Sheets with a local LLM"
 readme = "README.md"
 requires-python = ">=3.11"
