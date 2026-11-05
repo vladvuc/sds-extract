@@ -1,0 +1,25 @@
+2026-11-05 13:55:57,943 INFO run 2026-11-05T12-55-57Z_1bb809 started: 3 PDF(s) in /Users/vlad/Documents/1-Projects/kramp-zadatak/data
+2026-11-05 13:55:57,943 INFO run settings: {"run_id": "2026-11-05T12-55-57Z_1bb809", "started_at": "2026-11-05T12:55:57+00:00", "input_dir": "/Users/vlad/Documents/1-Projects/kramp-zadatak/data", "prompt_version": "v2", "package_version": "0.1.0", "python": "3.12.12", "platform": "macOS-26.7.1-arm64-arm-64bit", "llm": {"model": "qwen2.5:7b", "host": "http://localhost:11434", "temperature": 0.0, "seed": 56, "num_ctx": 8192, "think": null, "timeout_s": 600.0, "extra": {}}, "ollama_version": "0.40.14"}
+2026-11-05 13:55:58,083 INFO assSDS-120636860.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:56:05,702 INFO assSDS-120636860.pdf: model answered in 7.6s: {
+  "trade_name": "Super Silicone Kitchen",
+  "revision_date": "15.07.2026",
+  "hazard_codes": ["EUH208", "EUH210"]
+}
+2026-11-05 13:56:05,703 INFO assSDS-120636860.pdf: status=ok
+2026-11-05 13:56:05,839 INFO assSDS-123006278.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:56:12,895 INFO assSDS-123006278.pdf: model answered in 7.0s: {
+  "trade_name": "Kroon-Oil Fuel Optimix 2T",
+  "revision_date": "21-7-2026",
+  "hazard_codes": ["H224", "H304", "H315", "H336", "H411"]
+}
+2026-11-05 13:56:12,895 INFO assSDS-123006278.pdf: status=ok
+2026-11-05 13:56:13,097 INFO assSDS-128374293.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:56:20,355 INFO assSDS-128374293.pdf: model answered in 7.3s: {
+  "trade_name": "BISON KIT TRANSPARANT",
+  "revision_date": "20.04.2026",
+  "hazard_codes": ["H225", "H319", "H336", "EUH066"]
+}
+2026-11-05 13:56:20,355 INFO assSDS-128374293.pdf: status=ok
+2026-11-05 13:56:20,355 INFO run 2026-11-05T12-55-57Z_1bb809 finished in 22.4s: {'ok': 3, 'needs_review': 0, 'error': 0}
+2026-11-05 13:56:20,356 INFO wrote /Users/vlad/Documents/1-Projects/kramp-zadatak/output/runs/2026-11-05T12-55-57Z_1bb809 and appended to /Users/vlad/Documents/1-Projects/kramp-zadatak/output/history.jsonl

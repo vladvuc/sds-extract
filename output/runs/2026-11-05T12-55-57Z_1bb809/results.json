@@ -1,0 +1,70 @@
+{
+  "run_id": "2026-11-05T12-55-57Z_1bb809",
+  "finished_at": "2026-11-05T12:56:20+00:00",
+  "duration_s": 22.41,
+  "counts": {
+    "ok": 3,
+    "needs_review": 0,
+    "error": 0
+  },
+  "skipped_files": [],
+  "documents": [
+    {
+      "source_file": "assSDS-120636860.pdf",
+      "sha256": "16c5d170f7813ba5d8c583e9f5f2131785063142cf00a15981e4ad69c6baae35",
+      "trade_name": "Super Silicone Kitchen",
+      "revision_date": "15/07/2026",
+      "hazard_statements": "",
+      "supplemental_hazard_statements": "EUH208, EUH210",
+      "status": "ok",
+      "issues": [],
+      "llm": {
+        "raw": "{\n  \"trade_name\": \"Super Silicone Kitchen\",\n  \"revision_date\": \"15.07.2026\",\n  \"hazard_codes\": [\"EUH208\", \"EUH210\"]\n}",
+        "duration_s": 7.62
+      },
+      "sections": {
+        "header": "Bladzijde: 1/10\nVeiligheidsinformatieblad\nvolgens Verordening (EG) nr. 1907/2006, Artikel 31\nAfdrukdatum: 15.07.2026 herzien op: 15.07.2026 Versienummer 24 (vervangt versie 23)\n63.0\nRUBRIEK 1: Identificatie van de stof of het mengsel  en van de\nvennootschap/onderneming",
+        "1.1": "· 1.1 Productidentificatie\n· Handelsnaam: Super Silicone Kitchen",
+        "2.2": "· 2.2 Etiketteringselementen\n· Etikettering overeenkomstig Verordening (EG) nr. 1272/2008 Niet van toepassing\n· Gevarenpictogrammen Niet van toepassing\n· Signaalwoord Niet van toepassing\n· Gevarenaanduidingen Niet van toepassing\n· Aanvullende gegevens:\nEUH208 Bevat 3-aminopropyltriethoxysilaan. Kan een allergische reactie veroorzaken.\nEUH210 Veiligheidsinformatieblad op verzoek verkrijgbaar."
+      }
+    },
+    {
+      "source_file": "assSDS-123006278.pdf",
+      "sha256": "deadff1ed60d1b2973b7c24b8a37ede375f4682facc5d8372c481fb0c4d84f7e",
+      "trade_name": "Kroon-Oil Fuel Optimix 2T",
+      "revision_date": "21/07/2026",
+      "hazard_statements": "H224, H304, H315, H336, H411",
+      "supplemental_hazard_statements": "",
+      "status": "ok",
+      "issues": [],
+      "llm": {
+        "raw": "{\n  \"trade_name\": \"Kroon-Oil Fuel Optimix 2T\",\n  \"revision_date\": \"21-7-2026\",\n  \"hazard_codes\": [\"H224\", \"H304\", \"H315\", \"H336\", \"H411\"]\n}",
+        "duration_s": 7.05
+      },
+      "sections": {
+        "header": "Kroon-Oil Fuel Optimix 2T\nVeiligheidsinformatieblad\nvolgens de REACH-verordening (EC) 1907/2006 zoals gewijzigd bij Verordening (EU) 2020/878\nDatum van uitgave: 22-11-2018   Datum herziening: 21-7-2026   Vervangt versie van: 7-12-2023   Versie: 1.10\n21-7-2026 (Datum herziening)\n21-7-2026 (Afdrukdatum)\nNL (Nederlands) 1/15\nRUBRIEK 1: Identificatie van de stof of het mengsel en van de vennootschap/onderneming",
+        "1.1": "1.1. Productidentificatie\nProductvorm : Mengsel\nHandelsnaam : Kroon-Oil Fuel Optimix 2T\nUFI : F880-50PP-P00D-6M85\nProductcode : 98.60.01\nProductgroep : Handelsproduct",
+        "2.2": "2.2. Etiketteringselementen\nEtikettering conform Verordening (EG) Nr. 1272/2008 [CLP]\nGevarenpictogrammen (CLP) :\nGHS02 GHS07 GHS08 GHS09\nSignaalwoord (CLP) : Gevaar\nBevat : nafta (aardolie), totaalfractie, gealkyleerd; 2-methylbutaan\nGevarenaanduidingen (CLP) : H224 - Zeer licht ontvlambare vloeistof en damp.\nH304 - Kan dodelijk zijn als de stof bij inslikken in de luchtwegen terechtkomt.\nH315 - Veroorzaakt huidirritatie.\nH336 - Kan slaperigheid of duizeligheid veroorzaken.\nH411 - Giftig voor in het water levende organismen, met langdurige gevolgen.\nVeiligheidsaanbevelingen (CLP) : P101 - Bij het inwinnen van medisch advies, de verpakking of het etiket ter beschikking \nhouden.\nP102 - Buiten het bereik van kinderen houden.\nP210 - Verwijderd houden van warmte, hete oppervlakken, vonken, open vuur en andere \nontstekingsbronnen. Niet roken.\nP233 - In goed gesloten verpakking bewaren.\nP301+P310+P331 - NA INSLIKKEN: onmiddellijk arts raadplegen. GEEN braken opwekken.\nP370+P378 - In geval van brand: Blussen met ander blusmiddel dan water.\nP403+P235 - Op een goed geventileerde plaats bewaren. Koel bewaren.\nP501 - Inhoud/verpakking afvoeren naar inzamelpunt voor gevaarlijk of bijzonder afval in \novereenstemming met lokale, regionale, nationale en/of internationale regelgeving."
+      }
+    },
+    {
+      "source_file": "assSDS-128374293.pdf",
+      "sha256": "ece185b5a2e6d2826ddeb291aeae95a4e9aa4f620c4a0d88e612c34b68008745",
+      "trade_name": "BISON KIT TRANSPARANT",
+      "revision_date": "20/04/2026",
+      "hazard_statements": "H225, H319, H336",
+      "supplemental_hazard_statements": "EUH066",
+      "status": "ok",
+      "issues": [],
+      "llm": {
+        "raw": "{\n  \"trade_name\": \"BISON KIT TRANSPARANT\",\n  \"revision_date\": \"20.04.2026\",\n  \"hazard_codes\": [\"H225\", \"H319\", \"H336\", \"EUH066\"]\n}",
+        "duration_s": 7.26
+      },
+      "sections": {
+        "header": "Bladzijde: 1/13\nVeiligheidsinformatieblad\nvolgens Verordening (EG) nr. 1907/2006, Artikel 31\nAfdrukdatum: 08.07.2026 herzien op: 20.04.2026 Versienummer 43 (vervangt versie 42)\n63.0\nRUBRIEK 1: Identificatie van de stof of het mengsel  en van de\nvennootschap/onderneming",
+        "1.1": "· 1.1 Productidentificatie\n· Handelsnaam: BISON KIT TRANSPARANT",
+        "2.2": "· 2.2 Etiketteringselementen\n· Etikettering overeenkomstig Verordening (EG) nr. 1272/2008\nHet product is geclassificeerd en geëtiketteerd volgens de CLP-verordening.\n· Gevarenpictogrammen\nGHS02 GHS07\n· Signaalwoord Gevaar\n· Gevaaraanduidende componenten voor de etikettering:\nAceton\nEthylacetaat\n· Gevarenaanduidingen\nH225 Licht ontvlambare vloeistof en damp.\nH319 Veroorzaakt ernstige oogirritatie.\nH336 Kan slaperigheid of duizeligheid veroorzaken.\n(Vervolg op blz. 2)\n NL \nBIS CONTACT KIT TR BD 100ML*6 NLFR\n6305943 - BIS CONTACT KIT TR BD 100ML*6 NLFR\nwww.bison.net 1/13\nBladzijde: 2/13\nVeiligheidsinformatieblad\nvolgens Verordening (EG) nr. 1907/2006, Artikel 31\nAfdrukdatum: 08.07.2026 herzien op: 20.04.2026 Versienummer 43 (vervangt versie 42)\nHandelsnaam: BISON KIT TRANSPARANT\n(Vervolg van blz. 1)\n63.0\n· Veiligheidsaanbevelingen\nP101 Bij het inwinnen van medisch advies, de verpakki ng of het etiket ter beschikking\nhouden.\nP102 Buiten het bereik van kinderen houden.\nP210 Verwijderd houden van warmte, hete oppervlakken , vonken, open vuur en andere\nontstekingsbronnen. Niet roken.\nP261 Inademing van damp vermijden.\nP370+P378 In geval van brand: Blussen met: waternevel , alcoholbestendig schuim, bluspoeder,\nkooldioxide.\nP403+P233 Op een goed geventileerde plaats bewaren. In goed gesloten verpakking bewaren.\nP501 De inhoud/verpakking afvoeren overeenkomstig de na tionale voorschriften.\n· Aanvullende gegevens:\nEUH066 Herhaalde blootstelling kan een droge of een gebarsten huid veroorzaken.\nProdukt bevat: Precursoren voor explosieven die moe ten worden gemeld. Aanbieden,\nbinnenbrengen, bezit en gebruik volgens Verordening (EU) 2019/1148, Artikel 9."
+      }
+    }
+  ]
+}

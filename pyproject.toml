@@ -20,7 +20,8 @@ ui = ["nicegui>=3.0"]
 sds-extract = "sds_extract.cli:main"
 
 [dependency-groups]
-dev = ["pytest>=8"]
+release = ["python-semantic-release>=10.7"]
+dev = ["pytest>=8", { include-group = "release" }]
 
 [build-system]
 requires = ["hatchling"]
@@ -28,3 +29,24 @@ build-backend = "hatchling.build"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+# Version comes from Conventional Commits: fix -> patch, feat -> minor, "!" or BREAKING CHANGE -> major.
+[tool.semantic_release]
+version_toml = ["pyproject.toml:project.version"]
+tag_format = "v{version}"
+commit_message = "chore(release): v{version}"
+# Stay on 0.x while the tool is in development; set major_on_zero = true to cut 1.0.0.
+allow_zero_version = true
+major_on_zero = false
+# Keep uv.lock in sync with the bumped version and build the wheel attached to the GitHub release.
+build_command = """
+    uv lock --upgrade-package "$PACKAGE_NAME"
+    git add uv.lock
+    uv build
+"""
+
+[tool.semantic_release.branches.main]
+match = "main"
+
+[tool.semantic_release.changelog.default_templates]
+changelog_file = "CHANGELOG.md"

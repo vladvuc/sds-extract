@@ -3,6 +3,7 @@
 import argparse
 import logging
 import sys
+from importlib.metadata import version
 from pathlib import Path
 
 from .llm import LlmSettings
@@ -56,7 +57,10 @@ def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(
         prog="sds-extract", description="Extract master data from Safety Data Sheets."
     )
-    sub = p.add_subparsers(dest="command", required=True)
+    p.add_argument(
+        "--version", action="version", version=f"%(prog)s {version('sds-extract')}"
+    )
+    sub =p.add_subparsers(dest="command", required=True)
 
     def common(sp: argparse.ArgumentParser) -> None:
         sp.add_argument(

@@ -1,0 +1,132 @@
+2026-11-05 13:56:42,501 INFO run 2026-11-05T12-56-42Z_26ad43 started: 18 PDF(s) in dl-data
+2026-11-05 13:56:42,501 INFO run settings: {"run_id": "2026-11-05T12-56-42Z_26ad43", "started_at": "2026-11-05T12:56:42+00:00", "input_dir": "dl-data", "prompt_version": "v2", "package_version": "0.1.0", "python": "3.12.12", "platform": "macOS-26.7.1-arm64-arm-64bit", "llm": {"model": "qwen2.5:7b", "host": "http://localhost:11434", "temperature": 0.0, "seed": 56, "num_ctx": 8192, "think": null, "timeout_s": 600.0, "extra": {}}, "ollama_version": "0.40.14"}
+2026-11-05 13:56:42,501 WARNING sources.csv: skipped, not a PDF
+2026-11-05 13:56:42,597 INFO de-buderus-silcadur-hfs.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:56:48,576 INFO de-buderus-silcadur-hfs.pdf: model answered in 6.0s: {
+  "trade_name": "SILCADUR HFS Kleber",
+  "revision_date": "29.08.2024",
+  "hazard_codes": ["H315", "H319"]
+}
+2026-11-05 13:56:48,576 INFO de-buderus-silcadur-hfs.pdf: status=ok
+2026-11-05 13:56:48,622 INFO de-fischer-kilo-kleber.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:56:54,306 INFO de-fischer-kilo-kleber.pdf: model answered in 5.7s: {
+  "trade_name": "320 KILO KLEBER 80 ml",
+  "revision_date": "27.03.2019",
+  "hazard_codes": ["EUH208", "EUH210"]
+}
+2026-11-05 13:56:54,306 INFO de-fischer-kilo-kleber.pdf: status=ok
+2026-11-05 13:56:54,656 INFO de-hornbach-grossformat-kleber.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:57:00,493 INFO de-hornbach-grossformat-kleber.pdf: model answered in 5.8s: {
+  "trade_name": "GROSSFORMAT KLEBER",
+  "revision_date": "22.01.2026",
+  "hazard_codes": ["H315", "H318", "H335"]
+}
+2026-11-05 13:57:00,493 INFO de-hornbach-grossformat-kleber.pdf: status=ok
+2026-11-05 13:57:00,521 INFO de-rockwool-moertelkleber.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:57:05,856 INFO de-rockwool-moertelkleber.pdf: model answered in 5.3s: {
+  "trade_name": "Mörtelkleber",
+  "revision_date": "4.3.2025",
+  "hazard_codes": ["H315", "H318"]
+}
+2026-11-05 13:57:05,856 INFO de-rockwool-moertelkleber.pdf: status=ok
+2026-11-05 13:57:06,062 INFO en-aerosol-21868895.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:57:13,187 INFO en-aerosol-21868895.pdf: model answered in 7.1s: {
+  "trade_name": "WD-40® Specialist® Engine Starter",
+  "revision_date": "05.09.2022",
+  "hazard_codes": ["H315", "H336", "H412", "H222", "H229", "EUH019"]
+}
+2026-11-05 13:57:13,187 INFO en-aerosol-21868895.pdf: status=ok
+2026-11-05 13:57:13,459 INFO en-wd40-fast-release-penetrant.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:57:22,163 INFO en-wd40-fast-release-penetrant.pdf: model answered in 8.7s: {
+  "trade_name": "WD-40® Specialist® Fast Release Penetrant",
+  "revision_date": "09.10.2025",
+  "hazard_codes": ["H315", "H336", "H411", "H222", "H229"]
+}
+2026-11-05 13:57:22,163 INFO en-wd40-fast-release-penetrant.pdf: status=ok
+2026-11-05 13:57:22,265 INFO en-wd40-multi-use-non-aerosol.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:57:28,940 INFO en-wd40-multi-use-non-aerosol.pdf: model answered in 6.7s: {
+  "trade_name": "WD-40® MULTI-USE PRODUCT - [Non-Aerosol]",
+  "revision_date": "10.07.2015 / 0003",
+  "hazard_codes": ["H226", "H304", "H336", "EUH066"]
+}
+2026-11-05 13:57:28,941 INFO en-wd40-multi-use-non-aerosol.pdf: status=ok
+2026-11-05 13:57:29,037 INFO nl-bison-groene-aanslagvreter.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:57:36,303 INFO nl-bison-groene-aanslagvreter.pdf: model answered in 7.3s: {
+  "trade_name": "Bison Groene Aanslagvreter",
+  "revision_date": "29.07.2024",
+  "hazard_codes": ["H315", "H318", "H410"]
+}
+2026-11-05 13:57:36,303 INFO nl-bison-groene-aanslagvreter.pdf: status=ok
+2026-11-05 13:57:36,649 INFO nl-bison-kit-verdunner.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:57:46,074 INFO nl-bison-kit-verdunner.pdf: model answered in 9.4s: {
+  "trade_name": "VERDUNNER VOOR BISON KIT",
+  "revision_date": "10.07.2026",
+  "hazard_codes": ["H225", "H315", "H319", "H336", "H304", "H411"]
+}
+2026-11-05 13:57:46,074 WARNING nl-bison-kit-verdunner.pdf: hazard_statements: model missed H373 found in section 2.2
+2026-11-05 13:57:46,074 INFO nl-bison-kit-verdunner.pdf: status=needs_review
+2026-11-05 13:57:46,367 INFO nl-bison-kneedbaar-hout.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:57:56,244 INFO nl-bison-kneedbaar-hout.pdf: model answered in 9.9s: {
+  "trade_name": "BISON KNEEDBAAR HOUT",
+  "revision_date": "23.07.2025",
+  "hazard_codes": ["H225", "H319", "H317", "H336", "EUH066"]
+}
+2026-11-05 13:57:56,245 INFO nl-bison-kneedbaar-hout.pdf: status=ok
+2026-11-05 13:57:56,495 INFO nl-bison-schimmelvreter.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:58:04,071 INFO nl-bison-schimmelvreter.pdf: model answered in 7.6s: {
+  "trade_name": "BISON SCHIMMELVRETER",
+  "revision_date": "15.07.2026",
+  "hazard_codes": ["H290", "H314", "H410", "EUH206"]
+}
+2026-11-05 13:58:04,071 INFO nl-bison-schimmelvreter.pdf: status=ok
+2026-11-05 13:58:04,400 INFO nl-bison-tix-av-chv.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:58:15,316 INFO nl-bison-tix-av-chv.pdf: model answered in 10.9s: {
+  "trade_name": "Bison Tix AV+CHV",
+  "revision_date": "08.05.2026",
+  "hazard_codes": ["H225", "H315", "H319", "H336", "H412", "EUH208"]
+}
+2026-11-05 13:58:15,316 INFO nl-bison-tix-av-chv.pdf: status=ok
+2026-11-05 13:58:15,492 INFO nl-bison-tix-contactlijm.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:58:29,794 INFO nl-bison-tix-contactlijm.pdf: model answered in 14.3s: {
+  "trade_name": "Bison Tix",
+  "revision_date": "31.05.2021",
+  "hazard_codes": ["H225", "H315", "H319", "H336", "H412", "EUH208"]
+}
+2026-11-05 13:58:29,794 INFO nl-bison-tix-contactlijm.pdf: status=ok
+2026-11-05 13:58:30,075 INFO nl-denso-nd-oil12.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:58:39,401 INFO nl-denso-nd-oil12.pdf: model answered in 9.3s: {
+  "trade_name": "ND-OIL 12",
+  "revision_date": "23-06-2025",
+  "hazard_codes": ["H317", "H410", "EUH205"]
+}
+2026-11-05 13:58:39,401 INFO nl-denso-nd-oil12.pdf: status=ok
+2026-11-05 13:58:39,799 INFO nl-kroon-emtor-bl5400.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:58:49,885 INFO nl-kroon-emtor-bl5400.pdf: model answered in 10.1s: {
+  "trade_name": "Kroon-Oil Emtor BL-5400",
+  "revision_date": "24-6-2024",
+  "hazard_codes": ["H318", "H412", "EUH208"]
+}
+2026-11-05 13:58:49,886 INFO nl-kroon-emtor-bl5400.pdf: status=ok
+2026-11-05 13:58:50,004 INFO nl-kroon-emtor.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:58:59,115 INFO nl-kroon-emtor.pdf: model answered in 9.1s: {
+  "trade_name": "Kroon-Oil Emtor",
+  "revision_date": "6-3-2026",
+  "hazard_codes": ["H317", "H319", "H412"]
+}
+2026-11-05 13:58:59,115 INFO nl-kroon-emtor.pdf: status=ok
+2026-11-05 13:58:59,417 INFO nl-kroon-pneumolube.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:59:07,463 INFO nl-kroon-pneumolube.pdf: model answered in 8.0s: {
+  "trade_name": "Kroon-Oil Pneumolube",
+  "revision_date": "23-9-2022",
+  "hazard_codes": ["H302", "H373"]
+}
+2026-11-05 13:59:07,463 INFO nl-kroon-pneumolube.pdf: status=ok
+2026-11-05 13:59:07,648 INFO nl-kroon-shampoo-wax.pdf: sections found {'header': True, '1.1': True, '2.2': True}
+2026-11-05 13:59:17,411 INFO nl-kroon-shampoo-wax.pdf: model answered in 9.8s: {
+  "trade_name": "Kroon-Oil Shampoo Wax",
+  "revision_date": "30-10-2025",
+  "hazard_codes": ["H315", "H317", "H318"]
+}
+2026-11-05 13:59:17,411 INFO nl-kroon-shampoo-wax.pdf: status=ok
+2026-11-05 13:59:17,412 INFO run 2026-11-05T12-56-42Z_26ad43 finished in 154.9s: {'ok': 17, 'needs_review': 1, 'error': 0}
+2026-11-05 13:59:17,412 INFO wrote output/runs/2026-11-05T12-56-42Z_26ad43 and appended to output/history.jsonl

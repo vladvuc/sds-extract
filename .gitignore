@@ -20,3 +20,6 @@ __pycache__/
 !/.idea/runConfigurations
 
 data/
+
+# Build output (uv build / semantic-release)
+dist/

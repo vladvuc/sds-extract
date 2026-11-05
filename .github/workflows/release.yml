@@ -1,0 +1,53 @@
+name: Release
+
+# On every push to main, python-semantic-release reads the Conventional Commits since the
+# last tag, bumps the version in pyproject.toml and uv.lock, updates CHANGELOG.md, commits,
+# tags vX.Y.Z and publishes a GitHub release with the built wheel. No release-worthy
+# commits (only chore/docs/test/...) means no release.
+#
+# Tests are not run here: they need the SDS PDFs in data/, which are not in git.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.workflow }}-release-${{ github.ref_name }}
+      cancel-in-progress: false
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout full history on the release branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - name: Pin the branch to the commit that triggered the workflow
+        run: git reset --hard ${{ github.sha }}
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+
+      - name: Install python-semantic-release
+        run: uv sync --only-group release
+
+      - name: Bump version, tag and push
+        id: release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: uv run --no-sync semantic-release -v version
+
+      - name: Publish GitHub release assets
+        if: steps.release.outputs.released == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: uv run --no-sync semantic-release publish
