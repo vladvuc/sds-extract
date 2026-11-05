@@ -12,11 +12,19 @@ from pydantic import BaseModel, Field
 from .pdf import SdsSections
 
 HAZARD_CODE = re.compile(r"\b(EUH\d{3}|H\d{3}[A-Za-z]{0,2})\b")
-_DATE = r"(\d{1,2}[./-]\d{1,2}[./-]\d{4}|\d{4}-\d{2}-\d{2})"
-# Revision-date labels seen in NL/EN/DE SDSs. "Afdrukdatum"/"print date" and "Datum van uitgave"/"issue date" are excluded on purpose.
+# Day-first or ISO date. Single spaces between digits are tolerated because some PDFs
+# extract as "23.07.20 25".
+_DATE = r"(\d{1,2} ?[./-] ?\d{1,2} ?[./-] ?\d(?: ?\d){3}|\d{4}-\d{2}-\d{2})"
+# Revision-date labels seen in NL/EN/DE SDSs, matched with or without spaces ("Überarbeitetam").
+# Print date ("Afdrukdatum", "Druckdatum", "print date"), issue date ("Datum van uitgave") and the
+# replaced version's date ("Replacing version dated", "Ersetzt") are excluded on purpose.
+_LABELS = [
+    "herzien op", "herziening van", "datum herziening", "revisiedatum", "herzieningsdatum",
+    "revision date / version", "revision date", "date of revision", "revised on",
+    "überarbeitet am", "überarbeitungsdatum", "stand",
+]
 REVISION_LABEL = re.compile(
-    r"(herzien op|datum herziening|revisiedatum|herzieningsdatum|revision date|date of revision|revised on|"
-    r"überarbeitet am|überarbeitungsdatum)\s*:?\s*" + _DATE,
+    r"\b(" + "|".join(lbl.replace(" ", r"\s*") for lbl in _LABELS) + r")\s*:?\s*" + _DATE,
     re.IGNORECASE,
 )
 
@@ -53,17 +61,22 @@ def _squash(text: str) -> str:
 
 
 def normalize_date(raw: str | None) -> str | None:
-    """Return dd/mm/yyyy, or None if the value is not a recognisable day-first or ISO date."""
+    """Return dd/mm/yyyy, or None if the value is not a recognisable day-first or ISO date.
+
+    Extra text around a single date is tolerated, e.g. "10.07.2015 / 0003" copied from
+    "Revision date / version". A value with two or more dates is ambiguous and returns None.
+    """
     if not raw:
         return None
-    raw = raw.strip()
+    compact = re.sub(r"\s+", "", raw)
     try:
-        if m := re.fullmatch(r"(\d{4})-(\d{2})-(\d{2})", raw):
+        if m := re.fullmatch(r"(\d{4})-(\d{2})-(\d{2})", compact):
             y, mo, d = map(int, m.groups())
-        elif m := re.fullmatch(r"(\d{1,2})[./-](\d{1,2})[./-](\d{4})", raw):
+        elif m := re.fullmatch(r"(\d{1,2})[./-](\d{1,2})[./-](\d{4})", compact):
             d, mo, y = map(int, m.groups())
         else:
-            return None
+            found = re.findall(_DATE, raw)
+            return normalize_date(found[0]) if len(found) == 1 and found[0] != raw else None
         return date(y, mo, d).strftime("%d/%m/%Y")
     except ValueError:
         return None

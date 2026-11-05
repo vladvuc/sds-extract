@@ -118,6 +118,7 @@ def main(argv: list[str] | None = None) -> int:
         stream=sys.stderr,
     )
     logging.getLogger("httpx").setLevel(logging.WARNING)
+    logging.getLogger("pypdf").setLevel(logging.ERROR)  # font-encoding notices, not actionable
     args = build_parser().parse_args(argv)
     return args.func(args)
 

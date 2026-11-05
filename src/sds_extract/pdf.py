@@ -14,11 +14,12 @@ from pypdf import PdfReader
 # A heading line starts with optional bullets/asterisks, e.g. "· 2.2 Etiketteringselementen" or "2.2. Label elements".
 _HEADING = r"^[\W_]*{num}\.?\s"
 _SECTION_3 = r"^[\W_]*(RUBRIEK|SECTION|ABSCHNITT|RUBRIQUE)\s*3\b"
+HEADER_MAX_CHARS = 2500
 
 
 @dataclass(frozen=True)
 class SdsSections:
-    header: str  # top of page 1, before section 1.1; holds the revision date
+    header: str  # text before section 1.1; holds the revision date
     product_identifier: str  # section 1.1
     label_elements: str  # section 2.2
     full_text: str
@@ -58,9 +59,10 @@ def split_sections(pages: list[str]) -> SdsSections:
         full, _HEADING.format(num=r"2\.2"), [_HEADING.format(num=r"2\.3"), _SECTION_3]
     )
 
-    first_page = pages[0] if pages else ""
-    head_end = _find(_HEADING.format(num=r"1\.1"), first_page)
-    header = first_page[: head_end.start()] if head_end else first_page[:1500]
+    # Header = everything before the first 1.1 heading. Searching the full text, not only page 1,
+    # handles cover pages added by web shops. Keep the last part only, closest to section 1.
+    head_end = _find(_HEADING.format(num=r"1\.1"), full)
+    header = full[: head_end.start()][-HEADER_MAX_CHARS:] if head_end else full[:HEADER_MAX_CHARS]
 
     return SdsSections(
         header=header.strip(),

@@ -110,6 +110,9 @@ def test_rule_checks_match_hand_verified_values(pdf):
         ("21-7-2026", "21/07/2026"),
         ("4.3.2025", "04/03/2025"),
         ("2026-04-20", "20/04/2026"),
+        ("23.07.20 25", "23/07/2025"),  # space inside the year, as extracted from one Bison PDF
+        ("10.07.2015 / 0003", "10/07/2015"),  # Qwen copied "Revision date / version" including the version
+        ("29.08.2024 (replaces 13.01.2022)", None),  # two dates: ambiguous
         ("31.02.2026", None),
         ("July", None),
     ],
