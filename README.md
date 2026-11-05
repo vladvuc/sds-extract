@@ -124,6 +124,7 @@ uv run sds-extract extract --pdf-dir data --out output/provided
 - **Tested on 21 SDSs only** - See [Test data](#test-data). Other supplier layouts may need new heading or label patterns.
 - **Password-protected PDFs are not supported.** Encrypted PDFs open only when no user password is needed.
 - **Speed depends on hardware.** A 7B model on a laptop takes several seconds per document.
+- **Qwen 2.5 7B consistently skipped H373** on the Bison Kit Verdunner sheet, where the hazard list breaks numeric order with H373 before H304, while putting the two in order made it return all seven codes. The small models tend to favor ascending numerical patterns and can omit an item where the sequence is interrupted.
 - **The hidden text layer** that pypdf skips is an observation from these PDFs, not a guarantee for every supplier.
 
 ## Run details
