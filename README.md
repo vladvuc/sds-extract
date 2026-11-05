@@ -67,15 +67,17 @@ The UI in `ui.py` is optional. It shows the latest run listed in `output/history
 
 ## Decisions and assumptions
 
-- **H-codes and EUH-codes are separate attributes.** The assignment asks for "the list of H-codes" but defines the format as `H\d{3}` or `EUH\d{3}`. To stay within the requirement without losing data, `hazard_statements` holds H-codes and `supplemental_hazard_statements` holds the EUH-codes. The name comes from section 2.2, including codes under "Aanvullende gegevens" (supplementary information). The Griffon silicone states "Gevarenaanduidingen: Niet van toepassing" but lists EUH208 and EUH210, so its hazard statements are empty and its supplemental hazard statements are `EUH208, EUH210`.
-- **Only mixture codes from section 2.2.** Ingredient classifications in section 3 and section 16 are ignored.
-- **Code suffixes are kept.** Codes such as `H360Fd` or `H361f` keep their letters. They are valid CLP codes, and dropping the suffix would lose meaning.
+- **Confidentiality clause** - The documents in the assignment are treated as confidential, so please copy the required documents in the `data/` folder.
+- **H-codes and EUH-codes are separate attributes** - The assignment asks for "the list of H-codes" but defines the format as `H\d{3}` or `EUH\d{3}`. To stay within the requirement without losing data, `hazard_statements` holds H-codes and `supplemental_hazard_statements` holds the EUH-codes. The name comes from section 2.2, including codes under "Aanvullende gegevens" (supplementary information). The Griffon silicone states "Gevarenaanduidingen: Niet van toepassing" but lists EUH208 and EUH210, so its hazard statements are empty and its supplemental hazard statements are `EUH208, EUH210`.
+- **Only mixture codes from section 2.2** - Ingredient classifications in section 3 and section 16 are ignored.
+- **Code suffixes are kept** - Codes such as `H360Fd` or `H361f` keep their letters. They are valid codes for Classificaiton, Labelling and Packaging, and dropping the suffix would lose meaning.
 - **Hazard codes follow document order** and are deduplicated.
-- **The trade name is copied exactly.** Original case and language are kept. The page-header article line, for example `BIS CONTACT KIT TR BD 100ML*6 NLFR`, is not the trade name.
+- **The trade name is copied exactly** - Original case and language are kept. The page-header article line, for example `BIS CONTACT KIT TR BD 100ML*6 NLFR`, is not the trade name.
 - **Revision date**: used the labelled revision date, ignored print, issue, and replaced-version dates. Ambiguous numeric dates are day first.
 - **An empty hazard list with status `ok`** means the product has no label hazard codes. It does not mean extraction failed.
-- **File names are never used as data.** The model does not see them, and the tests identify documents by content hash.
-- **Local model.** The assignment allows local models, and SDS content stays on the machine.
+- **File names are never used as data** - The model does not see them, and the tests identify documents by content hash.
+- **Local model** - The assignment allows local models, and SDS content stays on the machine.
+- **Installed Cryptography dependency** - some suppliers SDSs documents are encrypted with AES, and pypdf cannot read them without the package.
 
 ## Questions for stakeholders before production
 
@@ -141,14 +143,18 @@ Filled from `config.json` in the run folder that produced the submitted output.
 
 ## Use of AI assistants
 
-Claude Code helped explore the PDFs, compare text extractors.
-Pi Coding Agent and Claude code help write the code and tests.
+**Claude Code** helped explore the PDFs, compare text extractors. **Pi Coding Agent** and **Claude Code** help write the code and tests.
 
 The output was verified in these ways:
 
 - Expected values were checked by hand against the PDFs and stored in `tests/expected.json`.
 - A test feeds deliberately wrong model output, such as the print date, an ingredient code and the article line, and asserts that validation catches each mistake.
 - The CLI, the section slicing and the "Ollama not reachable" path were run manually.
+
+### Total time
+
+- Research and implementation ~ 1 hour
+- Fine tuning, bug fix and documentation ~ 1.5 hour
 
 ## Tests and adding documents
 
@@ -167,12 +173,10 @@ The version follows [Semantic Versioning](https://semver.org) and is set by
 [python-semantic-release](https://python-semantic-release.readthedocs.io) from
 [Conventional Commits](https://www.conventionalcommits.org). Never edit the version by hand.
 
-The version is also written to `config.json` of every run as `package_version`.
-To leave 0.x and cut 1.0.0, set `major_on_zero = true` in `pyproject.toml`.
-
 ## Next steps
 
 1. Score each model run against `tests/expected.json` to measure accuracy per field and per model, for example `qwen2.5:7b` against `qwen3:8b`.
-2. Add OCR fallback for scanned PDFs and more heading and label patterns for FR, DE and other languages.
-3. Add a retry loop: when validation fails, send the issue back to the model once before flagging.
-4. Output an MDM-specific import schema with product ID mapping, and track SDS revisions over time.
+2. Test results and output logs on the frontier labs models.
+3. Add OCR fallback for scanned PDFs and more heading and label patterns for FR, DE and other languages.
+4. Add a retry loop: when validation fails, send the issue back to the model once before flagging.
+5. Output an MDM-specific import schema with product ID mapping, and track SDS revisions over time.
